@@ -1,69 +1,1271 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navigation System - Desktop & Mobile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+    }
+    
+    body {
+      background: #f5f7fa;
+      color: #111;
+      overflow-x: hidden;
+      padding-top: 1in; /* Account for fixed header */
+      padding-bottom: 85px; /* Account for bottom nav on mobile */
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #1b4de4;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+    }
+    
+    .demo-content {
+      background: white;
+      padding: 3rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      margin-bottom: 3rem;
+    }
+    
+    .demo-content h2 {
+      color: #ff3366;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+    
+    .demo-content p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .device-demo {
+      background: #1a1a2e;
+      color: white;
+      padding: 2rem;
+      border-radius: 16px;
+      margin-top: 2rem;
+    }
+    
+    .device-demo h3 {
+      color: #ff3366;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    
+    .screen-size-indicator {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      font-family: monospace;
+      margin-top: 1rem;
+    }
+    
+    .breakpoint-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .breakpoint-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #2563eb;
+    }
+    
+    .breakpoint-card h4 {
+      color: #ff3366;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Navigation Styles - Copied from extracted code */
+    :root {
+      --primary-pink: #ff3366;
+      --primary-blue: #2563eb;
+      --hot-pink: #ff1493;
+      --white: #ffffff;
+      --light-blue: #3b82f6;
+      --border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Desktop Header - Solid Colors with Borders */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1in; /* Fixed 1-inch height */
+      z-index: 1000;
+      padding: 0;
+      transition: all 0.3s ease;
+      background: var(--white);
+      border-bottom: 2px solid #e5e7eb;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      height: 100%;
+      padding: 0 25px;
+      background-color: var(--white);
+      width: 8cm; /* Extended to 8cm as requested */
+      justify-content: flex-start;
+      min-width: 8cm;
+      max-width: 8cm;
+      position: relative;
+      z-index: 1001;
+      border-right: 2px solid #e5e7eb;
+    }
+    
+    .logo img {
+      height: 0.7in; /* Proportional to 1-inch navbar */
+      width: 1.2in;
+      margin-right: 15px;
+      object-fit: contain;
+      transform: scale(1.3); /* Increased zoom for better visibility */
+      transform-origin: left center;
+      filter: brightness(1.1) contrast(1.1); /* Enhanced visibility */
+    }
+    
+    .logo-tagline {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4b5563;
+      white-space: nowrap;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      background: #f8fafc;
+      border-radius: 6px;
+      border-left: 2px solid #e5e7eb;
+      margin-left: 10px;
+      font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+    }
+    
+    nav {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: calc(100% - 10cm); /* Adjusted for larger white section */
+      background: var(--hot-pink);
+      padding: 0;
+      position: relative;
+      border-right: 2px solid var(--border-color);
+    }
+    
+    /* Blue section as part of navigation */
+    .nav-blue-section {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30%;
+      height: 100%;
+      background: var(--primary-blue);
+      z-index: 1;
+      border-left: 2px solid var(--border-color);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      height: 100%;
+      align-items: center;
+      width: 70%; /* Pink section takes 70% */
+      justify-content: space-around;
+      position: relative;
+      z-index: 2;
+      padding: 0 15px;
+    }
+    
+    nav ul li {
+      position: relative;
+    }
+    
+    /* FIXED NAVIGATION TEXT VISIBILITY */
+    nav ul li a {
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 700 !important;
+      font-size: 16px !important;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 12px 18px !important;
+      display: flex;
+      align-items: center;
+      border-radius: 6px;
+      z-index: 2;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8) !important;
+      letter-spacing: 0.5px;
+      background-color: transparent !important;
+      border: none !important;
+      text-align: center;
+      justify-content: center;
+      font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+    }
+    
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.25) !important;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 1) !important;
+    }
+
+    nav ul li a.active {
+      background-color: rgba(255, 255, 255, 0.3) !important;
+      color: #ffffff !important;
+      font-weight: 800 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 1) !important;
+    }
+    
+    .dropdown {
+      position: relative;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: var(--hot-pink);
+      min-width: 220px;
+      padding: 10px 0;
+      border-radius: 8px;
+      top: 100%;
+      left: 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      z-index: 1001;
+      border: 1px solid var(--border-color);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-content a {
+      display: block;
+      padding: 12px 20px !important;
+      margin: 0;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      transition: all 0.3s ease;
+      font-size: 15px !important;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6) !important;
+      background: transparent !important;
+      font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: rgba(255, 255, 255, 0.2) !important;
+      color: #ffffff !important;
+      padding-left: 25px !important;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8) !important;
+    }
+    
+    /* Force white text in all navigation contexts */
+    nav, nav *, .dropdown, .dropdown * {
+      color: #ffffff !important;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1002;
+      padding: 5px 10px;
+    }
+    
+    /* Mobile Top Header */
+    .mobile-top-header {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1in;
+      background: var(--white);
+      z-index: 1001;
+      padding: 0 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .mobile-logo-container {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+    
+    .mobile-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 5px 0;
+    }
+    
+    .mobile-logo img {
+      height: 0.65in;
+      width: 1.1in;
+      object-fit: contain;
+      transform: scale(1.4); /* Enhanced zoom for mobile */
+      transform-origin: left center;
+      filter: brightness(1.1) contrast(1.1);
+    }
+    
+    .mobile-logo-tagline {
+      font-size: 12px;
+      font-weight: 600;
+      color: #4b5563;
+      margin-left: 12px;
+      white-space: nowrap;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      background: #f8fafc;
+      border-radius: 4px;
+      border-left: 2px solid #e5e7eb;
+      font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+    }
+    
+    .mobile-nav-toggle {
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: #374151;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+    }
+    
+    .mobile-nav-toggle:hover {
+      background-color: #f3f4f6;
+    }
+    
+    /* Mobile Navigation Menu */
+    .mobile-nav-menu {
+      display: none;
+      position: fixed;
+      top: 1in;
+      left: 0;
+      width: 100%;
+      background: var(--white);
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    
+    .mobile-nav-menu.active {
+      display: block;
+      max-height: 400px;
+      padding: 15px 0;
+    }
+    
+    .mobile-nav-menu ul {
+      list-style: none;
+    }
+    
+    .mobile-nav-menu ul li {
+      border-bottom: 1px solid #f3f4f6;
+    }
+    
+    .mobile-nav-menu ul li a {
+      display: flex;
+      align-items: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 15px;
+      font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+    }
+    
+    .mobile-nav-menu ul li a i {
+      margin-right: 12px;
+      width: 20px;
+      text-align: center;
+      color: var(--hot-pink);
+    }
+    
+    .mobile-nav-menu ul li a:hover {
+      background-color: #f9fafb;
+      color: var(--hot-pink);
+      padding-left: 25px;
+    }
+    
+    .mobile-nav-menu ul li a.active {
+      background: linear-gradient(135deg, var(--hot-pink), var(--primary-blue));
+      color: white;
+      font-weight: 600;
+    }
+    
+    .mobile-nav-menu ul li a.active i {
+      color: white;
+    }
+    
+    /* Mobile Bottom Navigation - FIXED VISIBILITY */
+    .bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 85px; /* Increased height for better text visibility */
+      background: linear-gradient(135deg, var(--hot-pink), var(--primary-blue));
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+      z-index: 999;
+      padding: 10px 5px;
+      border-top: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .bottom-nav-items {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      list-style: none;
+      padding: 0 8px;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .bottom-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      text-decoration: none;
+      color: #ffffff !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      transition: all 0.3s ease;
+      padding: 8px 6px;
+      border-radius: 10px;
+      flex: 1;
+      min-width: 0;
+      max-width: 16.666%;
+      height: 100%;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9) !important;
+      background: transparent !important;
+      font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+      
+    }
+    
+    .bottom-nav-item svg {
+      width: 26px;
+      height: 26px;
+      margin-bottom: 6px;
+      fill: #ffffff !important;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8));
+    }
+    
+    .bottom-nav-item.active {
+      color: #ffffff !important;
+      background-color: rgba(255, 255, 255, 0.35) !important;
+      transform: translateY(-2px);
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 1) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .bottom-nav-item.active svg {
+      fill: #ffffff !important;
+      transform: scale(1.15);
+      filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 1));
+    }
+    
+    .bottom-nav-item:hover {
+      color: #ffffff !important;
+      background-color: rgba(255, 255, 255, 0.25) !important;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 1) !important;
+    }
+    
+    .bottom-nav-item:hover svg {
+      fill: #ffffff !important;
+      filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 1));
+    }
+    
+    .bottom-nav-item span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      text-align: center;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0.3px;
+    }
+    
+    /* ===== IMPROVED RESPONSIVE MEDIA QUERIES ===== */
+    
+    /* Large Desktops (1440px and above) */
+    @media screen and (min-width: 1440px) {
+      .container {
+        max-width: 1400px;
+      }
+      
+      nav ul li a {
+        font-size: 17px !important;
+        padding: 14px 22px !important;
+      }
+    }
+    
+    /* Standard Desktops (1200px to 1439px) - Default styles apply */
+    
+    /* Laptops/Small Desktops (992px to 1199px) */
+    @media screen and (max-width: 1199px) {
+      .logo {
+        width: 6cm;
+        min-width: 6cm;
+        max-width: 6cm;
+      }
+      
+      nav {
+        width: calc(100% - 6cm);
+      }
+      
+      nav ul li a {
+        font-size: 15px !important;
+        padding: 10px 16px !important;
+      }
+      
+      .logo-tagline {
+        font-size: 12px;
+        padding: 4px 10px;
+      }
+    }
+    
+    /* Tablets Landscape (768px to 991px) */
+    @media screen and (max-width: 991px) {
+      /* Hide desktop header on tablets and mobile */
+      header {
+        display: none;
+      }
+      
+      /* Show mobile header */
+      .mobile-top-header {
+        display: flex;
+        height: 0.9in;
+      }
+      
+      /* Show mobile bottom nav */
+      .bottom-nav {
+        display: flex;
+        height: 80px;
+      }
+      
+      .mobile-logo img {
+        height: 0.6in;
+        width: 1in;
+        transform: scale(1.4);
+      }
+      
+      .mobile-logo-tagline {
+        font-size: 11px;
+        margin-left: 10px;
+        padding: 3px 7px;
+      }
+      
+      .mobile-nav-toggle {
+        font-size: 20px;
+      }
+      
+      /* Adjust body padding for mobile */
+      body {
+        padding-top: 0.9in;
+        padding-bottom: 80px;
+      }
+    }
+    
+    /* Tablets Portrait (576px to 767px) */
+    @media screen and (max-width: 767px) {
+      .mobile-top-header {
+        padding: 0 15px;
+        height: 0.85in;
+      }
+      
+      .mobile-logo img {
+        height: 0.55in;
+        width: 0.9in;
+        transform: scale(1.3);
+      }
+      
+      .mobile-logo-tagline {
+        font-size: 10px;
+        margin-left: 8px;
+        padding: 2px 6px;
+      }
+      
+      .bottom-nav {
+        height: 75px;
+        padding: 8px 4px;
+      }
+      
+      .bottom-nav-item {
+        padding: 6px 4px;
+        font-size: 13px !important;
+      }
+      
+      .bottom-nav-item svg {
+        width: 22px;
+        height: 22px;
+        margin-bottom: 5px;
+      }
+      
+      .mobile-nav-menu ul li a {
+        padding: 12px 18px;
+        font-size: 14px;
+      }
+      
+      body {
+        padding-top: 0.85in;
+        padding-bottom: 75px;
+      }
+    }
+    
+    /* Large Mobile Phones (480px to 575px) */
+    @media screen and (max-width: 575px) {
+      .mobile-top-header {
+        height: 0.8in;
+        padding: 0 12px;
+      }
+      
+      .mobile-logo-container {
+        max-width: 80%;
+      }
+      
+      .mobile-logo img {
+        height: 0.5in;
+        width: 0.85in;
+        transform: scale(1.2);
+      }
+      
+      .mobile-logo-tagline {
+        font-size: 9px;
+        margin-left: 6px;
+        padding: 2px 4px;
+        letter-spacing: 0.5px;
+      }
+      
+      .mobile-nav-toggle {
+        font-size: 18px;
+        padding: 6px;
+      }
+      
+      .bottom-nav {
+        height: 70px;
+        padding: 6px 3px;
+      }
+      
+      .bottom-nav-item {
+        padding: 5px 3px;
+        font-size: 12px !important;
+      }
+      
+      .bottom-nav-item svg {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 4px;
+      }
+      
+      .bottom-nav-item span {
+        font-size: 11px !important;
+        letter-spacing: 0.2px;
+      }
+      
+      body {
+        padding-top: 0.8in;
+        padding-bottom: 70px;
+      }
+    }
+    
+    /* Small Mobile Phones (375px to 479px) */
+    @media screen and (max-width: 479px) {
+      .mobile-top-header {
+        height: 0.75in;
+        padding: 0 10px;
+      }
+      
+      .mobile-logo img {
+        height: 0.45in;
+        width: 0.75in;
+        transform: scale(1.15);
+      }
+      
+      .mobile-logo-tagline {
+        font-size: 8px;
+        margin-left: 5px;
+        padding: 1px 3px;
+        letter-spacing: 0.4px;
+      }
+      
+      .mobile-nav-toggle {
+        font-size: 16px;
+        padding: 4px;
+      }
+      
+      .bottom-nav {
+        height: 65px;
+        padding: 5px 2px;
+      }
+      
+      .bottom-nav-item {
+        padding: 4px 2px;
+        font-size: 11px !important;
+      }
+      
+      .bottom-nav-item svg {
+        width: 18px;
+        height: 18px;
+        margin-bottom: 3px;
+      }
+      
+      .bottom-nav-item span {
+        font-size: 10px !important;
+        letter-spacing: 0.1px;
+      }
+      
+      .mobile-nav-menu ul li a {
+        padding: 10px 15px;
+        font-size: 13px;
+      }
+      
+      body {
+        padding-top: 0.75in;
+        padding-bottom: 65px;
+      }
+    }
+    
+    /* Extra Small Mobile Phones (320px to 374px) */
+    @media screen and (max-width: 374px) {
+      .mobile-top-header {
+        height: 0.7in;
+        padding: 0 8px;
+      }
+      
+      .mobile-logo img {
+        height: 0.4in;
+        width: 0.7in;
+        transform: scale(1.1);
+      }
+      
+      .mobile-logo-tagline {
+        font-size: 7px;
+        margin-left: 4px;
+        padding: 1px 2px;
+      }
+      
+      .mobile-nav-toggle {
+        font-size: 16px;
+        padding: 4px;
+      }
+      
+      .bottom-nav {
+        height: 60px;
+        padding: 4px 1px;
+      }
+      
+      .bottom-nav-item {
+        padding: 3px 1px;
+        font-size: 10px !important;
+      }
+      
+      .bottom-nav-item svg {
+        width: 16px;
+        height: 16px;
+        margin-bottom: 2px;
+      }
+      
+      .bottom-nav-item span {
+        font-size: 9px !important;
+      }
+      
+      .bottom-nav-items {
+        padding: 0 3px;
+      }
+      
+      body {
+        padding-top: 0.7in;
+        padding-bottom: 60px;
+      }
+    }
+    
+    /* Tiny Mobile Phones (below 320px) */
+    @media screen and (max-width: 319px) {
+      .mobile-top-header {
+        height: 0.65in;
+      }
+      
+      .mobile-logo img {
+        height: 0.35in;
+        width: 0.6in;
+        transform: scale(1);
+      }
+      
+      .mobile-logo-tagline {
+        font-size: 6px;
+        margin-left: 3px;
+        padding: 1px 2px;
+        display: none; /* Hide on very small screens */
+      }
+      
+      .bottom-nav {
+        height: 55px;
+      }
+      
+      .bottom-nav-item {
+        padding: 2px 1px;
+        font-size: 9px !important;
+      }
+      
+      .bottom-nav-item svg {
+        width: 14px;
+        height: 14px;
+        margin-bottom: 1px;
+      }
+      
+      .bottom-nav-item span {
+        font-size: 8px !important;
+      }
+      
+      .mobile-nav-menu ul li a {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+      
+      body {
+        padding-top: 0.65in;
+        padding-bottom: 55px;
+      }
+    }
+    
+    /* Orientation-specific adjustments */
+    @media screen and (max-height: 500px) and (orientation: landscape) {
+      .mobile-top-header {
+        height: 0.7in;
+      }
+      
+      .mobile-logo img {
+        height: 0.45in;
+      }
+      
+      .bottom-nav {
+        height: 55px;
+      }
+      
+      .mobile-nav-menu {
+        top: 0.7in;
+        max-height: calc(100vh - 0.7in);
+      }
+      
+      body {
+        padding-top: 0.7in;
+        padding-bottom: 55px;
+      }
+    }
+    
+    /* Print styles */
+    @media print {
+      header, .mobile-top-header, .bottom-nav {
+        display: none !important;
+      }
+      
+      body {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
+    
+    /* High-contrast mode support */
+    @media (prefers-contrast: high) {
+      nav ul li a,
+      .bottom-nav-item,
+      .mobile-nav-menu ul li a {
+        text-shadow: 0 0 2px black !important;
+      }
+    }
+    
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+    
+    /* Demo Page Specific Styles */
+    .features-list {
+      margin-top: 2rem;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(27, 77, 228, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid #1b4de4;
+    }
+    
+    .feature-icon {
+      color: #ff3366;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      margin-top: 0.25rem;
+    }
+    
+    .feature-text h4 {
+      color: #1b4de4;
+      margin-bottom: 0.25rem;
+    }
+    
+    .test-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    
+    .test-btn {
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #1b4de4, #ff3366);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .test-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(27, 77, 228, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Section -->
+  <section id="navigation-section">
+    <!-- Desktop Header -->
+    <header id="header">
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
+          <div class="logo-tagline">creative simplicity</div>
+        </a>
+        
+        <nav>
+          <div class="nav-blue-section"></div>
+          <ul id="nav-menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li class="dropdown">
+              <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+              <div class="dropdown-content">
+                <a href="#branding">Branding</a>
+                <a href="#events">Events</a>
+                <a href="#production">Production</a>
+                <a href="#pr-media">PR & Media Relations</a>
+                <a href="#web-development">Web Development</a>
+              </div>
+            </li>
+            <li><a href="ourwork.html">Our Work</a></li>
+            <li><a href="ourclients.html">Clients</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Mobile Top Header -->
+    <div class="mobile-top-header">
+      <div class="mobile-logo-container">
+        <a href="index.html" class="mobile-logo">
+          <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
+          <div class="mobile-logo-tagline">creative simplicity</div>
+        </a>
+      </div>
+      <button class="mobile-nav-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu" id="mobileNavMenu">
+      <ul>
+        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
+        <li><a href="ourwork.html"><i class="fas fa-briefcase"></i> Our Work</a></li>
+        <li><a href="ourclients.html"><i class="fas fa-users"></i> Clients</a></li>
+        <li><a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+        <li><a href="contactus.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Mobile Bottom Navigation - FIXED VISIBILITY -->
+    <nav class="bottom-nav">
+      <ul class="bottom-nav-items">
+        <li>
+          <a href="index.html" class="bottom-nav-item active">
+            <svg viewBox="0 0 24 24">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="services.html" class="bottom-nav-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+            </svg>
+            <span>Services</span>
+          </a>
+        </li>
+        <li>
+          <a href="ourwork.html" class="bottom-nav-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z"/>
+            </svg>
+            <span>Our Work</span>
+          </a>
+        </li>
+        <li>
+          <a href="ourclients.html" class="bottom-nav-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+            </svg>
+            <span>Clients</span>
+          </a>
+        </li>
+        <li>
+          <a href="contactus.html" class="bottom-nav-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <span>Contact</span>
+          </a>
+        </li>
+        <li>
+          <a href="aboutus.html" class="bottom-nav-item">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            <span>About</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h1>Responsive Navigation System Demo</h1>
+    
+    <div class="demo-content">
+      <h2>Complete Navigation System</h2>
+      <p>This page demonstrates the extracted navigation system with both desktop and mobile versions. The navigation is fully responsive and adapts to all screen sizes.</p>
+      
+      <div class="features-list">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-desktop"></i>
+          </div>
+          <div class="feature-text">
+            <h4>Desktop Navigation</h4>
+            <p>Fixed header with 1-inch height, white logo section (8cm width), pink/blue gradient navigation with dropdown menus.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <div class="feature-text">
+            <h4>Mobile Navigation</h4>
+            <p>Top mobile header with hamburger menu, slide-down mobile menu, and bottom fixed navigation bar with icons.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-expand-alt"></i>
+          </div>
+          <div class="feature-text">
+            <h4>Fully Responsive</h4>
+            <p>Comprehensive media queries covering all device sizes from large desktops (1440px+) to small mobile phones (below 320px).</p>
+          </div>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="feature-text">
+            <h4>JavaScript Functionality</h4>
+            <p>Mobile menu toggle, active page highlighting, close menu on outside click, and smooth scroll to top for home link.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="device-demo">
+      <h3>Current Device Detection</h3>
+      <div class="screen-size-indicator" id="screenSize">
+        Loading screen size...
+      </div>
+      
+      <div class="breakpoint-info">
+        <div class="breakpoint-card">
+          <h4>Desktop (≥ 992px)</h4>
+          <p>Shows full desktop header with dropdown navigation</p>
+        </div>
+        
+        <div class="breakpoint-card">
+          <h4>Tablet (768px - 991px)</h4>
+          <p>Shows mobile header + bottom navigation</p>
+        </div>
+        
+        <div class="breakpoint-card">
+          <h4>Mobile (≤ 767px)</h4>
+          <p>Optimized mobile navigation with bottom bar</p>
+        </div>
+      </div>
+      
+      <div class="test-buttons">
+        <button class="test-btn" onclick="toggleMobileMenu()">Toggle Mobile Menu</button>
+        <button class="test-btn" onclick="simulateResize('desktop')">Simulate Desktop View</button>
+        <button class="test-btn" onclick="simulateResize('tablet')">Simulate Tablet View</button>
+        <button class="test-btn" onclick="simulateResize('mobile')">Simulate Mobile View</button>
+        <button class="test-btn" onclick="scrollToTop()">Scroll to Top</button>
+      </div>
+    </div>
+    
+    <div class="demo-content">
+      <h2>How It Works</h2>
+      <p>The navigation system uses CSS media queries to switch between desktop and mobile layouts:</p>
+      <ul style="padding-left: 2rem; margin-bottom: 1rem;">
+        <li><strong>992px and above:</strong> Desktop navigation visible</li>
+        <li><strong>768px - 991px:</strong> Tablet layout with mobile header and bottom nav</li>
+        <li><strong>767px and below:</strong> Mobile-optimized navigation</li>
+      </ul>
+      <p>Resize your browser window to see the navigation adapt in real-time!</p>
+    </div>
+  </main>
+
+  <script>
     // Mobile menu toggle functionality
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
     const mobileNavMenu = document.getElementById('mobileNavMenu');
     
     if (mobileNavToggle) {
-        mobileNavToggle.addEventListener('click', function() {
-            mobileNavMenu.classList.toggle('active');
-            this.innerHTML = mobileNavMenu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
+      mobileNavToggle.addEventListener('click', function() {
+        mobileNavMenu.classList.toggle('active');
+        this.innerHTML = mobileNavMenu.classList.contains('active') ? 
+          '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      });
     }
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-        if (!event.target.closest('.mobile-top-header') && !event.target.closest('.mobile-nav-menu')) {
-            mobileNavMenu.classList.remove('active');
-            if (mobileNavToggle) mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        }
+      if (!event.target.closest('.mobile-top-header') && !event.target.closest('.mobile-nav-menu')) {
+        mobileNavMenu.classList.remove('active');
+        if (mobileNavToggle) mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      }
     });
     
     // Close mobile menu when clicking a link
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu a');
     mobileNavLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            mobileNavMenu.classList.remove('active');
-            if (mobileNavToggle) mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        });
+      link.addEventListener('click', function() {
+        mobileNavMenu.classList.remove('active');
+        if (mobileNavToggle) mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      });
     });
     
     // Set active navigation item based on current page
     function setActiveNavItem() {
-        const currentPage = window.location.pathname.split('/').pop();
-        
-        // Desktop navigation
-        const desktopLinks = document.querySelectorAll('#nav-menu a');
-        desktopLinks.forEach(link => {
-            const linkHref = link.getAttribute('href');
-            if (linkHref === currentPage) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-        
-        // Mobile navigation
-        const mobileLinks = document.querySelectorAll('.mobile-nav-menu a');
-        mobileLinks.forEach(link => {
-            const linkHref = link.getAttribute('href');
-            if (linkHref === currentPage) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-        
-        // Mobile bottom navigation
-        const bottomNavLinks = document.querySelectorAll('.bottom-nav-item');
-        bottomNavLinks.forEach(link => {
-            const linkHref = link.getAttribute('href');
-            if (linkHref === currentPage) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
+      const currentPage = window.location.pathname.split('/').pop();
+      
+      // Desktop navigation
+      const desktopLinks = document.querySelectorAll('#nav-menu a');
+      desktopLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+      
+      // Mobile navigation
+      const mobileLinks = document.querySelectorAll('.mobile-nav-menu a');
+      mobileLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+      
+      // Mobile bottom navigation
+      const bottomNavLinks = document.querySelectorAll('.bottom-nav-item');
+      bottomNavLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
     }
 
     // Initialize active state
@@ -71,28 +1273,94 @@
     
     // Handle responsive behavior
     window.addEventListener('resize', function() {
-        if (window.innerWidth > 991) {
-            mobileNavMenu.classList.remove('active');
-            if (mobileNavToggle) mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        }
+      if (window.innerWidth > 991) {
+        mobileNavMenu.classList.remove('active');
+        if (mobileNavToggle) mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+      updateScreenSizeDisplay();
     });
 
     // Smooth scroll to top when home is clicked and already on home
     document.addEventListener('DOMContentLoaded', function() {
-        const homeLink = document.querySelector('.bottom-nav-item[href="index.html"]');
-        
-        if (homeLink) {
-            homeLink.addEventListener('click', function(e) {
-                if (window.location.pathname.endsWith('index.html') || 
-                    window.location.pathname === '/' || 
-                    window.location.pathname.endsWith('/')) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                }
+      const homeLink = document.querySelector('.bottom-nav-item[href="index.html"]');
+      
+      if (homeLink) {
+        homeLink.addEventListener('click', function(e) {
+          if (window.location.pathname.endsWith('index.html') || 
+              window.location.pathname === '/' || 
+              window.location.pathname.endsWith('/')) {
+            e.preventDefault();
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
             });
-        }
+          }
+        });
+      }
+      
+      updateScreenSizeDisplay();
     });
-</script>
+    
+    // Update screen size display
+    function updateScreenSizeDisplay() {
+      const screenSizeElement = document.getElementById('screenSize');
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      
+      let deviceType = 'Desktop';
+      if (width <= 991 && width > 767) deviceType = 'Tablet';
+      if (width <= 767) deviceType = 'Mobile';
+      
+      screenSizeElement.innerHTML = `
+        <strong>Width:</strong> ${width}px | <strong>Height:</strong> ${height}px<br>
+        <strong>Device Type:</strong> ${deviceType} | <strong>Breakpoint:</strong> ${getCurrentBreakpoint(width)}
+      `;
+    }
+    
+    function getCurrentBreakpoint(width) {
+      if (width >= 1440) return 'Large Desktop (≥1440px)';
+      if (width >= 1200) return 'Desktop (1200px-1439px)';
+      if (width >= 992) return 'Small Desktop (992px-1199px)';
+      if (width >= 768) return 'Tablet (768px-991px)';
+      if (width >= 576) return 'Large Mobile (576px-767px)';
+      if (width >= 480) return 'Mobile (480px-575px)';
+      if (width >= 375) return 'Small Mobile (375px-479px)';
+      if (width >= 320) return 'Extra Small Mobile (320px-374px)';
+      return 'Tiny Mobile (<320px)';
+    }
+    
+    // Demo functions
+    function toggleMobileMenu() {
+      if (mobileNavToggle) {
+        mobileNavToggle.click();
+        alert('Mobile menu toggled!');
+      } else {
+        alert('Mobile menu toggle is only available on tablet/mobile view (≤991px)');
+      }
+    }
+    
+    function simulateResize(view) {
+      let width;
+      switch(view) {
+        case 'desktop': width = 1200; break;
+        case 'tablet': width = 900; break;
+        case 'mobile': width = 400; break;
+        default: width = 1200;
+      }
+      
+      // Update display
+      updateScreenSizeDisplay();
+      
+      // Show message
+      alert(`Simulating ${view} view (${width}px width). Resize your browser window to see the actual responsive behavior.`);
+    }
+    
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+</body>
+</html>
