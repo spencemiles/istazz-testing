@@ -4,420 +4,428 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISTAZZ DESIGN | Transforming Ideas into Visual Experiences</title>
-<style>
-    /* Base Styles */
-    :root {
-        --hotpink: #FF1493;
-        --white: #FFFFFF;
-        --blue: #1E90FF;
-        --dark-blue: #0A2463;
-        --light-gray: #F5F5F5;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    body {
-        background-color: var(--white);
-        color: #333;
-        line-height: 1.6;
-        overflow-x: hidden;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
-    section {
-        padding: 80px 0;
-    }
-    
-    h1, h2, h3, h4 {
-        margin-bottom: 20px;
-        font-weight: 700;
-    }
-    
-    h1 {
-        font-size: 3.5rem;
-        line-height: 1.2;
-    }
-    
-    h2 {
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 50px;
-        position: relative;
-    }
-    
-    h2:after {
-        content: '';
-        position: absolute;
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(to right, var(--hotpink), var(--blue));
-    }
-    
-    p {
-        margin-bottom: 20px;
-        font-size: 1.1rem;
-    }
-    
-    .btn {
-        display: inline-block;
-        padding: 12px 30px;
-        background: linear-gradient(45deg, var(--hotpink), var(--blue));
-        color: var(--white);
-        border: none;
-        border-radius: 30px;
-        font-weight: 600;
-        text-decoration: none;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
-    }
-    
-    /* Hero Section */
-    .hero {
-        background: 
-            /* White gradient overlay for better readability */
-            linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.9) 100%),
-            /* Your brand gradient */
-            linear-gradient(135deg, rgba(255, 20, 147, 0.1) 0%, rgba(30, 144, 255, 0.1) 100%),
-            /* Background image */
-            url('https://res.cloudinary.com/dekdxx6yx/image/upload/v1762183342/branding_background_image_vxqpm0.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-blend-mode: overlay, normal, normal;
-        padding: 100px 0 80px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        min-height: 80vh;
-        display: flex;
-        align-items: center;
-        margin-top: 0;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .hero-content {
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 2;
-    }
-    
-    .hero h1 {
-        color: var(--dark-blue);
-        margin-bottom: 20px;
-        animation: fadeInUp 1s ease;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .hero p {
-        font-size: 1.3rem;
-        max-width: 700px;
-        margin: 0 auto 30px;
-        color: #444;
-        animation: fadeInUp 1s ease 0.2s both;
-        line-height: 1.7;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .hero .btn {
-        animation: fadeInUp 1s ease 0.4s both;
-        font-size: 1.1rem;
-        padding: 15px 40px;
-    }
-    
-    /* Remove the :before pseudo-element */
-    .hero:before {
-        display: none;
-    }
-    
-    /* Services Section */
-    .services {
-        background-color: var(--white);
-    }
-    
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
-    }
-    
-    .service-card {
-        background: var(--white);
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-        position: relative;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    }
-    
-    .service-image {
-        height: 200px;
-        background: linear-gradient(45deg, var(--hotpink), var(--blue));
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.5rem;
-        font-weight: 700;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .service-content {
-        padding: 25px;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .service-content h3 {
-        color: var(--dark-blue);
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .service-features {
-        list-style: none;
-        margin: 15px 0;
-        flex-grow: 1;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .service-features li {
-        margin-bottom: 8px;
-        padding-left: 20px;
-        position: relative;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .service-features li:before {
-        content: '✓';
-        position: absolute;
-        left: 0;
-        color: var(--hotpink);
-        font-weight: bold;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .service-btn {
-        margin-top: auto;
-        align-self: flex-start;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    /* Techniques Section */
-    .techniques {
-        background: linear-gradient(135deg, rgba(255, 20, 147, 0.05) 0%, rgba(30, 144, 255, 0.05) 100%);
-        padding: 80px 0;
-    }
-    
-    .techniques-slider {
-        position: relative;
-        overflow: hidden;
-        height: 300px;
-        margin: 40px 0;
-    }
-    
-    .techniques-track {
-        display: flex;
-        position: absolute;
-        left: 0;
-        top: 0;
-        animation: slide 30s linear infinite;
-    }
-    
-    .technique-item {
-        flex: 0 0 200px;
-        height: 280px;
-        margin: 0 15px;
-        background: var(--white);
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        transition: all 0.3s ease;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .technique-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-    
-    .technique-icon {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(45deg, var(--hotpink), var(--blue));
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-        color: white;
-        font-size: 1.8rem;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .technique-name {
-        font-weight: 600;
-        color: var(--dark-blue);
-        text-align: center;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    /* CTA Section */
-    .cta {
-        background: linear-gradient(135deg, var(--hotpink) 0%, var(--blue) 100%);
-        color: var(--white);
-        text-align: center;
-        padding: 100px 0;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .cta h2 {
-        color: var(--white);
-        margin-bottom: 30px;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .cta h2:after {
-        background: var(--white);
-    }
-    
-    .cta p {
-        max-width: 700px;
-        margin: 0 auto 40px;
-        font-size: 1.2rem;
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    .cta .btn {
-        background: var(--white);
-        color: var(--hotpink);
-        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-    }
-    
-    /* Animations */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes slide {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-50%);
-        }
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 1024px) {
-        .services-grid {
-            grid-template-columns: repeat(2, 1fr);
+    <style>
+        /* Base Styles */
+        :root {
+            --hotpink: #FF1493;
+            --white: #FFFFFF;
+            --blue: #1E90FF;
+            --dark-blue: #0A2463;
+            --light-gray: #F5F5F5;
         }
         
-        .footer-content {
-            flex-direction: column;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
-        .footer-about {
-            margin-bottom: 40px;
+        body {
+            background-color: var(--white);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
-    }
-    
-    @media (max-width: 768px) {
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
         h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
             font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
         }
         
-        h2 {
-            font-size: 2rem;
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--hotpink), var(--blue));
         }
         
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--hotpink), var(--blue));
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+        }
+        
+        /* Hero Section */
         .hero {
-            padding: 80px 0 60px;
-            min-height: 70vh;
+            background: 
+                /* White gradient overlay for better readability */
+                linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.9) 100%),
+                /* Your brand gradient */
+                linear-gradient(135deg, rgba(255, 20, 147, 0.1) 0%, rgba(30, 144, 255, 0.1) 100%),
+                /* Background image */
+                url('https://res.cloudinary.com/dekdxx6yx/image/upload/v1762183342/branding_background_image_vxqpm0.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay, normal, normal;
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
-            font-size: 2.8rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #444;
+            animation: fadeInUp 1s ease 0.2s both;
+            line-height: 1.7;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .hero .btn {
+            animation: fadeInUp 1s ease 0.4s both;
             font-size: 1.1rem;
+            padding: 15px 40px;
+        }
+        
+        /* Remove the :before pseudo-element */
+        .hero:before {
+            display: none;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--white);
         }
         
         .services-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        h1 {
-            font-size: 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
         }
         
-        h2 {
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--hotpink), var(--blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .service-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .service-content h3 {
+            color: var(--dark-blue);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin: 15px 0;
+            flex-grow: 1;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .service-features li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .service-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--hotpink);
+            font-weight: bold;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .service-btn {
+            margin-top: auto;
+            align-self: flex-start;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        /* Techniques Section */
+        .techniques {
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.05) 0%, rgba(30, 144, 255, 0.05) 100%);
+            padding: 80px 0;
+        }
+        
+        .techniques-slider {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            margin: 40px 0;
+        }
+        
+        .techniques-track {
+            display: flex;
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: slide 30s linear infinite;
+        }
+        
+        .technique-item {
+            flex: 0 0 200px;
+            height: 280px;
+            margin: 0 15px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: all 0.3s ease;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .technique-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .technique-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--hotpink), var(--blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
             font-size: 1.8rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
-        .hero {
-            padding: 70px 0 50px;
-            min-height: 60vh;
+        .technique-name {
+            font-weight: 600;
+            color: var(--dark-blue);
+            text-align: center;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
-        .hero h1 {
-            font-size: 2.2rem;
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--hotpink) 0%, var(--blue) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
-        .hero p {
-            font-size: 1rem;
+        .cta h2 {
+            color: var(--white);
+            margin-bottom: 30px;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
-    }
-</style>
+        
+        .cta h2:after {
+            background: var(--white);
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .cta .btn {
+            background: var(--white);
+            color: var(--hotpink);
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-about {
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 80px 0 60px;
+                min-height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                padding: 70px 0 50px;
+                min-height: 60vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
   
@@ -1603,6 +1611,7 @@
             transform: translateY(30px);
             animation: fadeInUp 0.8s ease-out forwards;
             animation-delay: 0.8s;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .hero-btn {
@@ -1624,6 +1633,7 @@
             transform: translateY(30px);
             animation: fadeInUp 0.8s ease-out forwards;
             animation-delay: 1s;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .hero-btn:hover {
@@ -1826,6 +1836,7 @@
             color: #2c3e50;
             position: relative;
             padding-bottom: 15px;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         h2:after {
@@ -1929,14 +1940,6 @@
     </section>
 
     <!-- Footer -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Istazz Media Footer</title>
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
         /* CSS Variables */
         :root {
@@ -1991,6 +1994,7 @@
             position: relative;
             display: inline-block;
             font-weight: 700;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .footer-section h3::after {
@@ -2009,6 +2013,7 @@
             margin: 20px 0 15px;
             color: var(--text-white-light);
             font-weight: 600;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         /* Logo Section */
@@ -2028,6 +2033,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: white;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .footer-description {
@@ -2035,6 +2041,7 @@
             line-height: 1.7;
             margin-bottom: 25px;
             font-size: 0.95rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         /* Newsletter */
@@ -2055,10 +2062,12 @@
             background: rgba(255, 255, 255, 0.1);
             color: white;
             font-size: 0.9rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .newsletter-form input::placeholder {
             color: rgba(255, 255, 255, 0.6);
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .newsletter-form input:focus {
@@ -2076,6 +2085,7 @@
             transition: var(--transition);
             font-weight: 600;
             font-size: 0.9rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .newsletter-btn:hover {
@@ -2126,6 +2136,7 @@
             align-items: flex-start;
             gap: 8px;
             font-size: 0.95rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .footer-links a i {
@@ -2149,6 +2160,7 @@
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.5);
             margin-top: 2px;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         /* Business Hours */
@@ -2167,6 +2179,7 @@
             margin-bottom: 8px;
             font-size: 0.9rem;
             color: var(--text-white-light);
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .hours-list li span:first-child {
@@ -2192,6 +2205,7 @@
             color: var(--text-white-light);
             font-size: 0.9rem;
             margin: 0;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .legal-links {
@@ -2206,6 +2220,7 @@
             text-decoration: none;
             font-size: 0.9rem;
             transition: var(--transition);
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .legal-links a:hover {
@@ -2218,6 +2233,7 @@
             gap: 10px;
             color: var(--text-white-light);
             font-size: 0.9rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .payment-icons {
@@ -2240,6 +2256,7 @@
             text-align: center;
             color: var(--text-white-light);
             font-size: 0.85rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .footer-credits i {
@@ -2262,6 +2279,7 @@
             z-index: 1000;
             transform: translateX(150%);
             transition: transform 0.3s ease;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .toast.visible {
@@ -2366,8 +2384,8 @@
                             f or excellence in branding, event management 
                             and production solutions, all with  an urge to 
                             exceed customer expectations.
-                            We are founded on a philosophy of  ‘Creative 
-                            Simplicity’ where we seek to always use new and 
+                            We are founded on a philosophy of  'Creative 
+                            Simplicity' where we seek to always use new and 
                             i nnovative techniques and solutions to meet the 
                             needs of our clients.
                             Creativity is in our DNA.</p>
@@ -2464,7 +2482,7 @@
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div class="copyright">
-                        <p>&copy; 2025 Istazz Media. All rights reserved.</p>
+                        <p>&copy; 2026 Istazz Media. All rights reserved.</p>
                     </div>
                     
                   
@@ -2472,7 +2490,7 @@
                 </div>
                 
                 <div class="footer-credits">
-                    <p>Designed with <i class="bi bi-heart-fill" style="color: var(--primary);"></i> by Istazz Media Team</p>
+                    <p>Designed by Istazz Media Team</p>
                 </div>
             </div>
         </div>
