@@ -115,6 +115,15 @@
             --blue: #1E90FF;
             --dark-blue: #0A2463;
             --light-gray: #F5F5F5;
+            --dark: #1a1a2e;
+            --dark-light: #16213e;
+            --primary: #ff3366;
+            --primary-dark: #e62958;
+            --secondary: #0f3460;
+            --accent: #00b4d8;
+            --text-white: #ffffff;
+            --text-white-light: rgba(255, 255, 255, 0.8);
+            --transition: all 0.3s ease;
         }
         
         * {
@@ -330,25 +339,26 @@
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
         
         .service-card {
             background: var(--white);
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             position: relative;
             height: 100%;
             display: flex;
             flex-direction: column;
+            border: 1px solid rgba(255, 20, 147, 0.1);
         }
         
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(255, 20, 147, 0.15);
         }
         
         .service-image {
@@ -358,12 +368,14 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
+            padding: 20px;
+            text-align: center;
         }
         
         .service-content {
-            padding: 25px;
+            padding: 30px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -377,14 +389,15 @@
         
         .service-features {
             list-style: none;
-            margin: 15px 0;
+            margin: 20px 0;
             flex-grow: 1;
         }
         
         .service-features li {
-            margin-bottom: 8px;
-            padding-left: 20px;
+            margin-bottom: 10px;
+            padding-left: 25px;
             position: relative;
+            font-size: 0.95rem;
         }
         
         .service-features li:before {
@@ -393,6 +406,7 @@
             left: 0;
             color: var(--hotpink);
             font-weight: bold;
+            font-size: 1.2rem;
         }
         
         .service-btn {
@@ -428,10 +442,135 @@
             color: var(--hotpink);
         }
         
+        .cta .btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Media Coverage Section */
+        .media-coverage {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+        }
+
+        .coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .coverage-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .coverage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .coverage-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .coverage-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .coverage-card:hover .coverage-image img {
+            transform: scale(1.05);
+        }
+
+        .coverage-content {
+            padding: 25px;
+        }
+
+        .coverage-content h3 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .coverage-content p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .coverage-date {
+            color: var(--hotpink);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Client Testimonials */
+        .testimonials-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 100px 0;
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            color: var(--hotpink);
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 1024px) {
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .text-line:nth-child(2) {
+                margin-left: 60px;
+            }
+
+            .text-line:nth-child(3) {
+                margin-left: 120px;
             }
         }
         
@@ -450,11 +589,11 @@
             }
             
             .text-line:nth-child(2) {
-                margin-left: 50px;
+                margin-left: 40px;
             }
 
             .text-line:nth-child(3) {
-                margin-left: 100px;
+                margin-left: 80px;
             }
             
             .hero-description {
@@ -471,8 +610,9 @@
                 grid-template-columns: 1fr;
             }
             
-            .slide img {
-                height: 350px;
+            .service-image {
+                height: 180px;
+                font-size: 1.5rem;
             }
         }
 
@@ -490,11 +630,11 @@
             }
             
             .text-line:nth-child(2) {
-                margin-left: 30px;
+                margin-left: 20px;
             }
 
             .text-line:nth-child(3) {
-                margin-left: 60px;
+                margin-left: 40px;
             }
             
             .hero-description {
@@ -502,21 +642,275 @@
                 max-width: 350px;
             }
             
-            .slide img {
-                height: 250px;
+            .service-image {
+                height: 160px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* FOOTER STYLES */
+        .footer {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            color: var(--text-white);
+            padding: 60px 0 0;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--hotpink), var(--blue), var(--accent));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+            color: white;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--hotpink);
+            border-radius: 2px;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            margin: 20px 0 15px;
+            color: var(--text-white-light);
+            font-weight: 600;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+
+        /* Logo Section */
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-right: 12px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-logo .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+
+        .footer-description {
+            color: var(--text-white-light);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+
+        /* Social Links */
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--hotpink);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+        }
+
+        /* Footer Links */
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-white-light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+
+        .footer-links a i {
+            margin-top: 3px;
+            color: var(--hotpink);
+            font-size: 0.8rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        /* Contact Info */
+        .contact-info li a {
+            align-items: flex-start;
+        }
+
+        .contact-info span small {
+            display: block;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 2px;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .copyright p {
+            color: var(--text-white-light);
+            font-size: 0.9rem;
+            margin: 0;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+
+        .legal-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            padding: 0;
+        }
+
+        .legal-links a {
+            color: var(--text-white-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+
+        .legal-links a:hover {
+            color: white;
+        }
+
+        .footer-credits {
+            text-align: center;
+            color: var(--text-white-light);
+            font-size: 0.85rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+            margin-top: 15px;
+        }
+
+        .footer-credits i {
+            margin: 0 5px;
+            color: var(--hotpink);
+        }
+
+        /* Responsive Footer */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 40px 0 0;
             }
             
-            .slideshow-nav button {
-                width: 40px;
-                height: 40px;
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .legal-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-section h3 {
                 font-size: 1.2rem;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .legal-links {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Section (Same as your existing code) -->
+    <!-- Navigation Section -->
 <section id="navigation-section">
     <!-- Desktop Header -->
     <header id="header">
@@ -529,14 +923,14 @@
             <nav>
                 <div class="nav-blue-section"></div>
                 <ul id="nav-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li class="dropdown">
                         <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
                             <a href="#branding">Branding</a>
                             <a href="#events">Events</a>
                             <a href="#production">Production</a>
-                            <a href="#pr-media">PR & Media Relations</a>
+                            <a href="pr-media.html" class="active">PR & Media Relations</a>
                             <a href="#web-development">Web Development</a>
                         </div>
                     </li>
@@ -565,7 +959,7 @@
     <!-- Mobile Navigation Menu -->
     <div class="mobile-nav-menu" id="mobileNavMenu">
         <ul>
-            <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
             <li><a href="ourwork.html"><i class="fas fa-briefcase"></i> Our Work</a></li>
             <li><a href="ourclients.html"><i class="fas fa-users"></i> Clients</a></li>
@@ -578,7 +972,7 @@
     <nav class="bottom-nav">
         <ul class="bottom-nav-items">
             <li>
-                <a href="index.html" class="bottom-nav-item active">
+                <a href="index.html" class="bottom-nav-item">
                     <svg viewBox="0 0 24 24">
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                     </svg>
@@ -1642,375 +2036,97 @@
                         <a href="contactus.html" class="btn service-btn">Explore Options</a>
                     </div>
                 </div>
+
+                <!-- Media Training -->
+                <div class="service-card">
+                    <div class="service-image">Media Training</div>
+                    <div class="service-content">
+                        <h3>Media Training</h3>
+                        <p>Preparing your executives and spokespersons to effectively communicate with media and handle interviews with confidence.</p>
+                        <ul class="service-features">
+                            <li>Interview Preparation</li>
+                            <li>Message Development</li>
+                            <li>Crisis Communication Training</li>
+                            <li>On-Camera Coaching</li>
+                        </ul>
+                        <a href="contactus.html" class="btn service-btn">Book Training</a>
+                    </div>
+                </div>
+
+                <!-- PR Strategy -->
+                <div class="service-card">
+                    <div class="service-image">PR Strategy</div>
+                    <div class="service-content">
+                        <h3>PR Strategy & Planning</h3>
+                        <p>Developing comprehensive PR strategies aligned with your business objectives and brand positioning.</p>
+                        <ul class="service-features">
+                            <li>Strategic Communications Planning</li>
+                            <li>Audience Analysis & Targeting</li>
+                            <li>Campaign Measurement & Analytics</li>
+                            <li>Competitive Analysis</li>
+                        </ul>
+                        <a href="contactus.html" class="btn service-btn">Develop Strategy</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-<section class="slideshow-section">
-    <div class="container">
-        <h2>Our Work in Action</h2>
-        <div class="slideshow-wrapper">
-            <div class="slideshow-container">
-                <div class="slideshow-track" id="slideshow">
-                    <div class="slide-item">
-                        <div class="image-container">
-                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588498/Media_Interviews_Press_Conferences_fwdlgt.jpg" alt="Media Interview">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Media Interviews & Press Conferences</h3>
-                            <p>Securing high-profile media opportunities for our clients</p>
-                        </div>
+    <!-- Media Coverage Section -->
+    <section class="media-coverage">
+        <div class="container">
+            <h2>Featured Media Coverage</h2>
+            <div class="coverage-grid">
+                <div class="coverage-card">
+                    <div class="coverage-image">
+                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588498/Media_Interviews_Press_Conferences_fwdlgt.jpg" alt="Business Daily Feature">
                     </div>
-                    <div class="slide-item">
-                        <div class="image-container">
-                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588497/Brand_Launch_Events_shot3r.png" alt="Brand Launch">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Brand Launch Events</h3>
-                            <p>Creating buzz and media coverage for new product launches</p>
-                        </div>
+                    <div class="coverage-content">
+                        <h3>Business Daily Feature</h3>
+                        <p>Exclusive interview with our client CEO discussing innovation in the Kenyan market.</p>
+                        <div class="coverage-date">October 2024</div>
                     </div>
-                    <div class="slide-item">
-                        <div class="image-container">
-                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588524/crisis-communications-change-management-strategy_whbyml.jpg" alt="Crisis Management">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Crisis Communication Management</h3>
-                            <p>Protecting brand reputation during challenging situations</p>
-                        </div>
+                </div>
+                
+                <div class="coverage-card">
+                    <div class="coverage-image">
+                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588497/Brand_Launch_Events_shot3r.png" alt="Nation TV Segment">
                     </div>
-                    <div class="slide-item">
-                        <div class="image-container">
-                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588710/media-training-main-image_otcq75.jpg" alt="Media Training">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Media Training Sessions</h3>
-                            <p>Preparing executives for successful media interactions</p>
-                        </div>
+                    <div class="coverage-content">
+                        <h3>Nation TV Segment</h3>
+                        <p>Live broadcast coverage of our client's product launch event reaching millions of viewers.</p>
+                        <div class="coverage-date">September 2024</div>
                     </div>
-                    <div class="slide-item">
-                        <div class="image-container">
-                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588830/Strategic_PR_Campaigns_gwo2qb.jpg" alt="PR Strategy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Strategic PR Campaigns</h3>
-                            <p>Developing comprehensive PR strategies for brand growth</p>
-                        </div>
+                </div>
+                
+                <div class="coverage-card">
+                    <div class="coverage-image">
+                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588524/crisis-communications-change-management-strategy_whbyml.jpg" alt="Standard Newspaper">
                     </div>
-                    <div class="slide-item">
-                        <div class="image-container">
-                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588495/Digital_PR_Social_Media_egri0j.jpg" alt="Digital PR">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Digital PR & Social Media</h3>
-                            <p>Amplifying brand presence across digital platforms</p>
-                        </div>
+                    <div class="coverage-content">
+                        <h3>The Standard Feature</h3>
+                        <p>Front-page coverage of our crisis management success story for a major corporate client.</p>
+                        <div class="coverage-date">August 2024</div>
                     </div>
                 </div>
             </div>
-            <div class="slideshow-controls">
-                <button id="prevBtn" class="control-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                <button id="nextBtn" class="control-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="slideshow-indicators" id="indicators">
-                <!-- Indicators will be added by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 style="color: white; text-align: center; margin-bottom: 50px;">Client Success Stories</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Istazz Media's PR team transformed our brand visibility. Within 3 months, we secured features in 15 major publications and doubled our media mentions. Their strategic approach to media relations is exceptional."</p>
+                    <p class="testimonial-author">Sarah Johnson</p>
+                    <p class="testimonial-role">Marketing Director, Safaricom PLC</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <style>
-        .slideshow-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .slideshow-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: #2c3e50;
-            font-weight: 700;
-            position: relative;
-        }
-        
-        .slideshow-section h2:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #3498db, #2ecc71);
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-        
-        .slideshow-wrapper {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .slideshow-container {
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            background: white;
-        }
-        
-        .slideshow-track {
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .slide-item {
-            min-width: 100%;
-            display: flex;
-            align-items: center;
-            padding: 40px;
-            gap: 40px;
-        }
-        
-        .image-container {
-            flex: 0 0 45%;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .image-container img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        
-        .image-container:hover img {
-            transform: scale(1.05);
-        }
-        
-        .slide-content {
-            flex: 1;
-        }
-        
-        .slide-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-weight: 600;
-        }
-        
-        .slide-content p {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            line-height: 1.6;
-        }
-        
-        .slideshow-controls {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            padding: 0 20px;
-            z-index: 10;
-        }
-        
-        .control-btn {
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            color: #2c3e50;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        .control-btn:hover {
-            background: white;
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
-        
-        .slideshow-indicators {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-            gap: 12px;
-        }
-        
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #bdc3c7;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .indicator.active {
-            background: #3498db;
-            transform: scale(1.2);
-        }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .slideshow-section h2 {
-                font-size: 2rem;
-            }
-            
-            .slide-item {
-                flex-direction: column;
-                padding: 30px;
-                gap: 25px;
-            }
-            
-            .image-container {
-                flex: 0 0 auto;
-                width: 100%;
-            }
-            
-            .image-container img {
-                height: 250px;
-            }
-            
-            .slide-content h3 {
-                font-size: 1.5rem;
-            }
-            
-            .control-btn {
-                width: 45px;
-                height: 45px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .slideshow-section {
-                padding: 60px 0;
-            }
-            
-            .slideshow-section h2 {
-                font-size: 1.8rem;
-            }
-            
-            .slide-item {
-                padding: 20px;
-            }
-            
-            .image-container img {
-                height: 200px;
-            }
-            
-            .slide-content h3 {
-                font-size: 1.3rem;
-            }
-            
-            .slide-content p {
-                font-size: 1rem;
-            }
-            
-            .control-btn {
-                width: 40px;
-                height: 40px;
-            }
-        }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const slideshow = document.getElementById('slideshow');
-            const slides = document.querySelectorAll('.slide-item');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const indicatorsContainer = document.getElementById('indicators');
-            
-            let currentSlide = 0;
-            const totalSlides = slides.length;
-            const AUTO_SLIDE_INTERVAL = 6000; // 6 seconds
-            
-            // Create indicators
-            for (let i = 0; i < totalSlides; i++) {
-                const indicator = document.createElement('div');
-                indicator.classList.add('indicator');
-                if (i === 0) indicator.classList.add('active');
-                indicator.addEventListener('click', () => goToSlide(i));
-                indicatorsContainer.appendChild(indicator);
-            }
-            
-            const indicators = document.querySelectorAll('.indicator');
-            
-            // Function to update slideshow
-            function updateSlideshow() {
-                slideshow.style.transform = `translateX(-${currentSlide * 100}%)`;
-                
-                // Update active states
-                indicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === currentSlide);
-                });
-            }
-            
-            // Next slide function
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                updateSlideshow();
-            }
-            
-            // Previous slide function
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                updateSlideshow();
-            }
-            
-            // Go to specific slide
-            function goToSlide(index) {
-                currentSlide = index;
-                updateSlideshow();
-            }
-            
-            // Event listeners
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
-            
-            // Auto-advance slides every 6 seconds
-            let slideInterval = setInterval(nextSlide, AUTO_SLIDE_INTERVAL);
-            
-            // Pause auto-advance on hover
-            slideshow.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-            
-            slideshow.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(nextSlide, AUTO_SLIDE_INTERVAL);
-            });
-            
-            // Initialize slideshow
-            updateSlideshow();
-        });
-    </script>
-</section>
-<script>
-    const AUTO_SLIDE_INTERVAL = 6000; // 6 seconds
-</script>
     <!-- CTA Section -->
     <section class="cta" id="contact">
         <div class="container">
@@ -2030,17 +2146,8 @@
                         <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
                         <div class="logo-text">Istazz Media</div>
                     </div>
-                    <p class="footer-description"> A uniquely structured media agency with an eye 
-                            f or excellence in branding, event management 
-                            and production solutions, all with  an urge to 
-                            exceed customer expectations.
-                            We are founded on a philosophy of  'Creative 
-                            Simplicity' where we seek to always use new and 
-                            i nnovative techniques and solutions to meet the 
-                            needs of our clients.
-                            Creativity is in our DNA.</p>
-                                                
-                  
+                    <p class="footer-description">A uniquely structured media agency with an eye for excellence in branding, event management and production solutions, all with an urge to exceed customer expectations. We are founded on a philosophy of 'Creative Simplicity' where we seek to always use new and innovative techniques and solutions to meet the needs of our clients. Creativity is in our DNA.</p>
+                    
                     <div class="social-links">
                         <h4>Follow Us</h4>
                         <div class="social-icons">
@@ -2066,33 +2173,29 @@
                     </div>
                 </div>
 
-                <!-- Services Section -->
-                <div class="footer-section">
-                    <h3>Our Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Brand Photography</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Corporate Events</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Product Photography</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Video Production</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Drone Photography</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Photo Editing</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Media Training</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Social Media Content</a></li>
-                    </ul>
-                </div>
-
                 <!-- Quick Links Section -->
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
                         <li><a href="services.html"><i class="bi bi-chevron-right"></i> Services</a></li>
-                        <li><a href="ourwork.html"><i class="bi bi-chevron-right"></i> Portfolio</a></li>
+                        <li><a href="ourwork.html"><i class="bi bi-chevron-right"></i> Our Work</a></li>
                         <li><a href="ourclients.html"><i class="bi bi-chevron-right"></i> Our Clients</a></li>
                         <li><a href="aboutus.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
                         <li><a href="contactus.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Blog</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <!-- PR & Media Services Section -->
+                <div class="footer-section">
+                    <h3>PR & Media Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Media Relations</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Crisis Communication</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Content Development</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Digital PR</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Press Release Writing</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Media Training</a></li>
                     </ul>
                 </div>
 
@@ -2103,19 +2206,25 @@
                         <li>
                             <a href="#">
                                 <i class="bi bi-geo-alt"></i>
-                                <span>Nairobi, Kenya<br><small>Mbuni drive,off new garden estate road</small></span>
+                                <span>Nairobi, Kenya<br><small>Mbuni drive, off new garden estate road</small></span>
                             </a>
                         </li>
                         <li>
-                            <a href="tel:+254712345678">
+                            <a href="tel:+254725116708">
                                 <i class="bi bi-telephone"></i>
-                                <span>+254 725 116 708<br><small>24/7</small></span>
+                                <span>+254 725 116 708<br><small>Business Hours</small></span>
                             </a>
                         </li>
                         <li>
-                            <a href="tel:+254734567890">
+                            <a href="tel:+254725116708">
                                 <i class="bi bi-phone"></i>
                                 <span>+254 725 116 708<br><small>Emergency Support</small></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@istazzmedia.com">
+                                <i class="bi bi-envelope"></i>
+                                <span>info@istazzmedia.com<br><small>Quick Response</small></span>
                             </a>
                         </li>
                     </ul>
@@ -2128,86 +2237,72 @@
                     <div class="copyright">
                         <p>&copy; 2025 Istazz Media. All rights reserved.</p>
                     </div>
-                  
+                    
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
                 </div>
                 
                 <div class="footer-credits">
-                    <p>Designed with <i class="bi bi-heart-fill" style="color: var(--primary);"></i> by Istazz Media Team</p>
+                    <p>Designed with <i class="bi bi-heart-fill"></i> by Istazz Media Team</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Newsletter form submission
+        // Add animation for service cards on scroll
         document.addEventListener('DOMContentLoaded', function() {
-            const newsletterForm = document.querySelector('.newsletter-form');
-            if (newsletterForm) {
-                const newsletterInput = newsletterForm.querySelector('input');
-                const newsletterBtn = newsletterForm.querySelector('.newsletter-btn');
-                
-                newsletterBtn.addEventListener('click', function(e) {
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            serviceCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     
-                    const email = newsletterInput.value.trim();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
                     
-                    if (!email) {
-                        showNewsletterMessage('Please enter your email address', 'error');
-                        return;
-                    }
-                    
-                    if (!isValidEmail(email)) {
-                        showNewsletterMessage('Please enter a valid email address', 'error');
-                        return;
-                    }
-                    
-                    // Simulate subscription success
-                    showNewsletterMessage('Thank you for subscribing to our newsletter!', 'success');
-                    newsletterInput.value = '';
-                });
-                
-                // Also handle Enter key in the input field
-                newsletterInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        newsletterBtn.click();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
                     }
                 });
-                
-                function isValidEmail(email) {
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    return emailRegex.test(email);
-                }
-                
-                function showNewsletterMessage(message, type) {
-                    // Create toast notification
-                    const toast = document.createElement('div');
-                    toast.className = `toast ${type}`;
-                    toast.innerHTML = `
-                        <div class="toast-icon">
-                            <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-                        </div>
-                        <div class="toast-message">${message}</div>
-                    `;
-                    
-                    document.body.appendChild(toast);
-                    
-                    // Trigger animation
-                    setTimeout(() => {
-                        toast.classList.add('visible');
-                    }, 10);
-                    
-                    // Remove after delay
-                    setTimeout(() => {
-                        toast.classList.remove('visible');
-                        setTimeout(() => {
-                            if (document.body.contains(toast)) {
-                                document.body.removeChild(toast);
-                            }
-                        }, 300);
-                    }, 3000);
-                }
-            }
+            });
+        });
+
+        // Add hover effect for service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         });
     </script>
 </body>
