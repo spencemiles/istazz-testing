@@ -3,520 +3,567 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISTAZZ PR & MEDIA RELATIONS | Building Your Brand Presence</title>
+    <title>Istazz Media | Pinterest Gallery</title>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* UNIVERSAL FONT FIX - APPLIED TO EVERYTHING */
-        *,
-        *:before,
-        *:after,
-        html,
-        body,
-        div,
-        span,
-        applet,
-        object,
-        iframe,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p,
-        blockquote,
-        pre,
-        a,
-        abbr,
-        acronym,
-        address,
-        big,
-        cite,
-        code,
-        del,
-        dfn,
-        em,
-        img,
-        ins,
-        kbd,
-        q,
-        s,
-        samp,
-        small,
-        strike,
-        strong,
-        sub,
-        sup,
-        tt,
-        var,
-        b,
-        u,
-        i,
-        center,
-        dl,
-        dt,
-        dd,
-        ol,
-        ul,
-        li,
-        fieldset,
-        form,
-        label,
-        legend,
-        table,
-        caption,
-        tbody,
-        tfoot,
-        thead,
-        tr,
-        th,
-        td,
-        article,
-        aside,
-        canvas,
-        details,
-        embed,
-        figure,
-        figcaption,
-        footer,
-        header,
-        hgroup,
-        menu,
-        nav,
-        output,
-        ruby,
-        section,
-        summary,
-        time,
-        mark,
-        audio,
-        video,
-        button,
-        input,
-        select,
-        textarea {
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-        }
-        
-        /* Ensure all text elements inherit the font */
-        body * {
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-        }
-        
-        /* Base Styles */
-        :root {
-            --hotpink: #FF1493;
-            --white: #FFFFFF;
-            --blue: #1E90FF;
-            --dark-blue: #0A2463;
-            --light-gray: #F5F5F5;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
-        
+
         body {
-            background-color: var(--white);
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+            background-color: #fff;
+            color: #111;
+            line-height: 1.3;
         }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+
+        /* Pinterest Header */
+        .pinterest-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background: #fff;
+            z-index: 1000;
             padding: 0 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
         }
-        
-        section {
-            padding: 80px 0;
+
+        .header-left {
+            flex: 0 0 auto;
+            margin-right: 20px;
         }
-        
-        h1, h2, h3, h4 {
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-        }
-        
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, var(--hotpink), var(--blue));
-        }
-        
-        p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(45deg, var(--hotpink), var(--blue));
-            color: var(--white);
-            border: none;
-            border-radius: 30px;
-            font-weight: 600;
+
+        .pinterest-logo {
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
         }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
-        }
-        
-        /* Staircase Hero Section */
-        .hero {
-            min-height: 100vh;
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: #e60023;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            background: 
-                /* Dark gradient overlay for better text visibility */
-                linear-gradient(135deg, 
-                    rgba(10, 10, 10, 0.85) 0%, 
-                    rgba(26, 26, 46, 0.8) 50%, 
-                    rgba(22, 33, 62, 0.85) 100%),
-                /* Brand gradient overlay */
-                linear-gradient(135deg, 
-                    rgba(255, 20, 147, 0.2) 0%, 
-                    rgba(30, 144, 255, 0.15) 100%),
-                /* Background image - Media relations */
-                url('https://images.unsplash.com/photo-1551836026-d5c8f1e67f16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding: 0 20px;
-            overflow: hidden;
-            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
         }
 
-        .hero-content {
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e60023;
+            margin-left: 8px;
+        }
+
+        .header-center {
+            flex: 1;
             max-width: 800px;
             position: relative;
-            z-index: 2;
         }
 
-        .staircase-text {
+        .search-wrapper {
+            width: 100%;
+            background: #efefef;
+            border-radius: 24px;
+            padding: 0 20px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            margin-bottom: 2rem;
+            height: 48px;
         }
 
-        .text-line {
-            font-size: 3rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #FF1493 0%, #1E90FF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            margin-bottom: 0.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease-out forwards;
-            position: relative;
-            width: fit-content;
+        .search-icon {
+            color: #767676;
+            margin-right: 12px;
+            font-size: 20px;
         }
 
-        /* Staircase positioning */
-        .text-line:nth-child(1) {
-            animation-delay: 0.2s;
-            /* ISTAZZ PR & MEDIA - centered */
-            margin-left: 0;
-        }
-
-        .text-line:nth-child(2) {
-            animation-delay: 0.4s;
-            /* BUILDING BRANDS - starts under "MEDIA" and extends to the right */
-            margin-left: 80px;
-        }
-
-        .text-line:nth-child(3) {
-            animation-delay: 0.6s;
-            /* SHAPING STORIES - starts under "BRANDS" and extends to the right */
-            margin-left: 160px;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: #e0e0e0;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease-out forwards;
-            animation-delay: 0.8s;
-        }
-
-        .hero-btn {
-            display: inline-block;
-            padding: 14px 35px;
-            background: linear-gradient(135deg, #FF1493 0%, #1E90FF 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(255, 20, 147, 0.4);
+        .search-input {
+            width: 100%;
+            background: transparent;
             border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease-out forwards;
-            animation-delay: 1s;
+            outline: none;
+            font-size: 16px;
+            font-weight: 400;
         }
 
-        .hero-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255, 20, 147, 0.6);
+        .search-input::placeholder {
+            color: #767676;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Services Section */
-        .services {
-            background-color: var(--white);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-        
-        .service-card {
-            background: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            position: relative;
-            height: 100%;
+        .header-right {
+            flex: 0 0 auto;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-left: 20px;
         }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-image {
-            height: 200px;
-            background: linear-gradient(45deg, var(--hotpink), var(--blue));
+
+        .nav-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
+            text-decoration: none;
+            color: #767676;
+            font-size: 24px;
+            transition: background-color 0.2s;
         }
-        
-        .service-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .service-content h3 {
-            color: var(--dark-blue);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .service-features {
-            list-style: none;
-            margin: 15px 0;
-            flex-grow: 1;
-        }
-        
-        .service-features li {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-        
-        .service-features li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--hotpink);
-            font-weight: bold;
-        }
-        
-        .service-btn {
-            margin-top: auto;
-            align-self: flex-start;
-        }
-        
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, var(--hotpink) 0%, var(--blue) 100%);
-            color: var(--white);
-            text-align: center;
-            padding: 100px 0;
-        }
-        
-        .cta h2 {
-            color: var(--white);
-            margin-bottom: 30px;
-        }
-        
-        .cta h2:after {
-            background: var(--white);
-        }
-        
-        .cta p {
-            max-width: 700px;
-            margin: 0 auto 40px;
-            font-size: 1.2rem;
-        }
-        
-        .cta .btn {
-            background: var(--white);
-            color: var(--hotpink);
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-            
-            .text-line {
-                font-size: 2.2rem;
-                letter-spacing: 1.5px;
-            }
-            
-            .text-line:nth-child(2) {
-                margin-left: 50px;
-            }
 
-            .text-line:nth-child(3) {
-                margin-left: 100px;
+        .nav-icon:hover {
+            background-color: #efefef;
+        }
+
+        .nav-icon.active {
+            color: #111;
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #efefef;
+            overflow: hidden;
+        }
+
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            padding: 20px;
+            min-height: calc(100vh - 80px);
+        }
+
+        /* Pinterest Grid */
+        .pinterest-grid {
+            columns: 6 240px;
+            column-gap: 16px;
+            margin: 0 auto;
+            max-width: 1400px;
+        }
+
+        .pin-card {
+            break-inside: avoid;
+            margin-bottom: 16px;
+            border-radius: 16px;
+            background: #fff;
+            cursor: zoom-in;
+            position: relative;
+            transition: transform 0.2s ease;
+            overflow: hidden;
+        }
+
+        .pin-card:hover {
+            transform: scale(1.02);
+        }
+
+        .pin-image-wrapper {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #efefef;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pin-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .pin-image.loaded {
+            opacity: 1;
+        }
+
+        .pin-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 40%);
+            opacity: 0;
+            transition: opacity 0.2s;
+            border-radius: 16px;
+            pointer-events: none;
+        }
+
+        .pin-card:hover .pin-overlay {
+            opacity: 1;
+        }
+
+        .pin-actions {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            display: flex;
+            gap: 8px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+
+        .pin-card:hover .pin-actions {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .pin-action-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 24px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            color: #111;
+            backdrop-filter: blur(10px);
+            transition: background-color 0.2s;
+        }
+
+        .pin-action-btn:hover {
+            background: #fff;
+        }
+
+        .pin-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.2s;
+            pointer-events: none;
+        }
+
+        .pin-card:hover .pin-title {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pin-title-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Loading Skeleton */
+        .pin-skeleton {
+            break-inside: avoid;
+            margin-bottom: 16px;
+            border-radius: 16px;
+            background: #efefef;
+            animation: skeleton-loading 1.5s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pin-skeleton::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes skeleton-loading {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        /* Footer */
+        .pinterest-footer {
+            padding: 20px;
+            text-align: center;
+            color: #767676;
+            font-size: 14px;
+            border-top: 1px solid #efefef;
+            margin-top: 40px;
+        }
+
+        /* Modal - UPDATED for better close button */
+        .pin-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            padding: 20px;
+        }
+
+        .pin-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 32px;
+            max-width: 1000px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s;
+        }
+
+        .pin-modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 1000; /* Increased z-index */
+            transition: background-color 0.2s;
+            pointer-events: auto !important; /* Force clickable */
+        }
+
+        .modal-close:hover {
+            background: #fff;
+        }
+
+        .modal-body {
+            display: flex;
+            height: 70vh;
+        }
+
+        .modal-image {
+            flex: 1;
+            background: #efefef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .modal-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 16px;
+        }
+
+        .modal-info {
+            flex: 0 0 320px;
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .modal-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #efefef;
+        }
+
+        .modal-btn {
+            padding: 12px 20px;
+            border-radius: 24px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .modal-btn.primary {
+            background: #e60023;
+            color: white;
+        }
+
+        .modal-btn.primary:hover {
+            background: #ad081b;
+        }
+
+        .modal-btn.secondary {
+            background: #efefef;
+            color: #111;
+        }
+
+        .modal-btn.secondary:hover {
+            background: #e2e2e2;
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid #efefef;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 14px;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 2000;
+        }
+
+        .toast.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pinterest-grid {
+                columns: 5 200px;
             }
             
-            .hero-description {
-                font-size: 1rem;
-                max-width: 400px;
+            .modal-body {
+                flex-direction: column;
+                height: auto;
+                max-height: 80vh;
             }
             
-            .hero-btn {
-                padding: 12px 30px;
-                font-size: 0.85rem;
+            .modal-image {
+                height: 50vh;
             }
             
-            .services-grid {
-                grid-template-columns: 1fr;
+            .modal-info {
+                flex: none;
+                max-height: 30vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pinterest-grid {
+                columns: 3 180px;
             }
             
-            .slide img {
-                height: 350px;
+            .header-center {
+                display: none;
+            }
+            
+            .modal-content {
+                border-radius: 16px;
             }
         }
 
         @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
+            .pinterest-grid {
+                columns: 2 160px;
             }
             
-            h2 {
-                font-size: 1.8rem;
+            .pinterest-header {
+                padding: 0 12px;
             }
             
-            .text-line {
-                font-size: 1.8rem;
-            }
-            
-            .text-line:nth-child(2) {
-                margin-left: 30px;
-            }
-
-            .text-line:nth-child(3) {
-                margin-left: 60px;
-            }
-            
-            .hero-description {
-                font-size: 0.95rem;
-                max-width: 350px;
-            }
-            
-            .slide img {
-                height: 250px;
-            }
-            
-            .slideshow-nav button {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
+            .header-left .logo-text {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navigation Section (Same as your existing code) -->
 <section id="navigation-section">
     <!-- Desktop Header -->
     <header id="header">
@@ -636,6 +683,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         :root {
@@ -721,6 +769,7 @@
             border-radius: 6px;
             border-left: 2px solid #e5e7eb;
             margin-left: 8px;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
             flex-shrink: 0;
         }
         
@@ -786,6 +835,7 @@
             border: none !important;
             text-align: center;
             justify-content: center;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
             white-space: nowrap;
         }
         
@@ -837,6 +887,7 @@
             font-size: 13px !important; /* Reduced font size */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6) !important;
             background: transparent !important;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
             white-space: nowrap;
         }
         
@@ -954,6 +1005,7 @@
             background: #f8fafc;
             border-radius: 4px;
             border-left: 2px solid #e5e7eb;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
             flex-shrink: 0;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -1017,6 +1069,7 @@
             font-weight: 500;
             transition: all 0.3s ease;
             font-size: 15px;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .mobile-nav-menu ul li a i {
@@ -1089,6 +1142,7 @@
             height: 100%;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9) !important;
             background: transparent !important;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .bottom-nav-item svg {
@@ -1560,654 +1614,526 @@
         }
     </script>
 </section>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="staircase-text">
-                <div class="text-line">ISTAZZ PR & MEDIA</div>
-                <div class="text-line">BUILDING BRANDS</div>
-                <div class="text-line">SHAPING STORIES</div>
-            </div>
-            <p class="hero-description">Strategic PR and media relations services that amplify your brand's voice, build credibility, and connect you with your target audience through strategic PR and media relations.</p>
-            <a href="#services" class="hero-btn">Explore Our Services</a>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div id="pinterestGrid" class="pinterest-grid">
+            <!-- Pinterest cards will be dynamically inserted here -->
         </div>
-    </section>
+    </main>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2>Our PR & Media Services</h2>
-            <div class="services-grid">
-                <!-- Media Relations -->
-                <div class="service-card">
-                    <div class="service-image">Media Relations</div>
-                    <div class="service-content">
-                        <h3>Media Relations</h3>
-                        <p>Building and maintaining strong relationships with journalists, editors, and influencers to secure positive media coverage.</p>
-                        <ul class="service-features">
-                            <li>Press Release Writing & Distribution</li>
-                            <li>Media List Development</li>
-                            <li>Press Conference Management</li>
-                            <li>Media Monitoring & Analysis</li>
-                        </ul>
-                        <a href="contactus.html" class="btn service-btn">Get Started</a>
-                    </div>
-                </div>
-                
-                <!-- Crisis Communication -->
-                <div class="service-card">
-                    <div class="service-image">Crisis Communication</div>
-                    <div class="service-content">
-                        <h3>Crisis Communication</h3>
-                        <p>Strategic communication plans to protect your reputation during challenging times and manage public perception.</p>
-                        <ul class="service-features">
-                            <li>Crisis Communication Planning</li>
-                            <li>24/7 Crisis Response</li>
-                            <li>Media Training for Spokespersons</li>
-                            <li>Reputation Management</li>
-                        </ul>
-                        <a href="contactus.html" class="btn service-btn">Learn More</a>
-                    </div>
-                </div>
-                
-                <!-- Content Development -->
-                <div class="service-card">
-                    <div class="service-image">Content Development</div>
-                    <div class="service-content">
-                        <h3>Content Development</h3>
-                        <p>Creating compelling content that tells your brand story and engages your target audience across multiple platforms.</p>
-                        <ul class="service-features">
-                            <li>Thought Leadership Articles</li>
-                            <li>Case Studies & White Papers</li>
-                            <li>Blog Content & Editorial Calendars</li>
-                            <li>Social Media Content Strategy</li>
-                        </ul>
-                        <a href="contactus.html" class="btn service-btn">View Samples</a>
-                    </div>
-                </div>
-                
-                <!-- Digital PR -->
-                <div class="service-card">
-                    <div class="service-image">Digital PR</div>
-                    <div class="service-content">
-                        <h3>Digital PR</h3>
-                        <p>Leveraging online platforms to enhance your brand's visibility, authority, and search engine rankings.</p>
-                        <ul class="service-features">
-                            <li>Online Reputation Management</li>
-                            <li>Influencer Partnerships</li>
-                            <li>Digital Media Outreach</li>
-                            <li>SEO-Optimized Content</li>
-                        </ul>
-                        <a href="contactus.html" class="btn service-btn">Explore Options</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Footer -->
+    <footer class="pinterest-footer">
+        <p>© 2026 Istazz Media | Pinterest-style Gallery</p>
+    </footer>
 
-<section class="slideshow-section">
-    <div class="container">
-        <h2>Our Work in Action</h2>
-        <div class="slideshow-wrapper">
-            <div class="slideshow-container">
-                <div class="slideshow-track" id="slideshow">
-                    <div class="slide-item">
-                        <div class="image-container">
-                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588498/Media_Interviews_Press_Conferences_fwdlgt.jpg" alt="Media Interview">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Media Interviews & Press Conferences</h3>
-                            <p>Securing high-profile media opportunities for our clients</p>
-                        </div>
-                    </div>
-                    <div class="slide-item">
-                        <div class="image-container">
-                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588497/Brand_Launch_Events_shot3r.png" alt="Brand Launch">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Brand Launch Events</h3>
-                            <p>Creating buzz and media coverage for new product launches</p>
-                        </div>
-                    </div>
-                    <div class="slide-item">
-                        <div class="image-container">
-                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588524/crisis-communications-change-management-strategy_whbyml.jpg" alt="Crisis Management">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Crisis Communication Management</h3>
-                            <p>Protecting brand reputation during challenging situations</p>
-                        </div>
-                    </div>
-                    <div class="slide-item">
-                        <div class="image-container">
-                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588710/media-training-main-image_otcq75.jpg" alt="Media Training">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Media Training Sessions</h3>
-                            <p>Preparing executives for successful media interactions</p>
-                        </div>
-                    </div>
-                    <div class="slide-item">
-                        <div class="image-container">
-                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588830/Strategic_PR_Campaigns_gwo2qb.jpg" alt="PR Strategy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Strategic PR Campaigns</h3>
-                            <p>Developing comprehensive PR strategies for brand growth</p>
-                        </div>
-                    </div>
-                    <div class="slide-item">
-                        <div class="image-container">
-                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588495/Digital_PR_Social_Media_egri0j.jpg" alt="Digital PR">
-                        </div>
-                        <div class="slide-content">
-                            <h3>Digital PR & Social Media</h3>
-                            <p>Amplifying brand presence across digital platforms</p>
-                        </div>
+    <!-- Pin Modal -->
+    <div class="pin-modal" id="pinModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="bi-x-lg"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-image" id="modalImage">
+                    <!-- Image will be inserted here -->
+                </div>
+                <div class="modal-info">
+                    <h1 class="modal-title" id="modalTitle">Image Title</h1>
+                    <div class="modal-actions">
+                        <button class="modal-btn primary" id="downloadBtn">
+                            <i class="bi-download"></i>
+                            Download
+                        </button>
+                        <button class="modal-btn secondary" id="shareBtn">
+                            <i class="bi-share"></i>
+                            Share
+                        </button>
                     </div>
                 </div>
-            </div>
-            <div class="slideshow-controls">
-                <button id="prevBtn" class="control-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                <button id="nextBtn" class="control-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="slideshow-indicators" id="indicators">
-                <!-- Indicators will be added by JavaScript -->
             </div>
         </div>
     </div>
 
-    <style>
-        .slideshow-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .slideshow-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: #2c3e50;
-            font-weight: 700;
-            position: relative;
-        }
-        
-        .slideshow-section h2:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #3498db, #2ecc71);
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-        
-        .slideshow-wrapper {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .slideshow-container {
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            background: white;
-        }
-        
-        .slideshow-track {
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .slide-item {
-            min-width: 100%;
-            display: flex;
-            align-items: center;
-            padding: 40px;
-            gap: 40px;
-        }
-        
-        .image-container {
-            flex: 0 0 45%;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .image-container img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        
-        .image-container:hover img {
-            transform: scale(1.05);
-        }
-        
-        .slide-content {
-            flex: 1;
-        }
-        
-        .slide-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-weight: 600;
-        }
-        
-        .slide-content p {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            line-height: 1.6;
-        }
-        
-        .slideshow-controls {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            padding: 0 20px;
-            z-index: 10;
-        }
-        
-        .control-btn {
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            color: #2c3e50;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        .control-btn:hover {
-            background: white;
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
-        
-        .slideshow-indicators {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-            gap: 12px;
-        }
-        
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #bdc3c7;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .indicator.active {
-            background: #3498db;
-            transform: scale(1.2);
-        }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .slideshow-section h2 {
-                font-size: 2rem;
-            }
-            
-            .slide-item {
-                flex-direction: column;
-                padding: 30px;
-                gap: 25px;
-            }
-            
-            .image-container {
-                flex: 0 0 auto;
-                width: 100%;
-            }
-            
-            .image-container img {
-                height: 250px;
-            }
-            
-            .slide-content h3 {
-                font-size: 1.5rem;
-            }
-            
-            .control-btn {
-                width: 45px;
-                height: 45px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .slideshow-section {
-                padding: 60px 0;
-            }
-            
-            .slideshow-section h2 {
-                font-size: 1.8rem;
-            }
-            
-            .slide-item {
-                padding: 20px;
-            }
-            
-            .image-container img {
-                height: 200px;
-            }
-            
-            .slide-content h3 {
-                font-size: 1.3rem;
-            }
-            
-            .slide-content p {
-                font-size: 1rem;
-            }
-            
-            .control-btn {
-                width: 40px;
-                height: 40px;
-            }
-        }
-    </style>
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollToTop">
+        <i class="bi-chevron-up"></i>
+    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const slideshow = document.getElementById('slideshow');
-            const slides = document.querySelectorAll('.slide-item');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const indicatorsContainer = document.getElementById('indicators');
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div id="toastMessage"></div>
+    </div>
+
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        // Firebase config
+        const firebaseConfig = {
+          apiKey: "AIzaSyDCdt6FV_zrEyZkJCngtXsmEjht1aahX8k",
+          authDomain: "istazz-media-2a381.firebaseapp.com",
+          projectId: "istazz-media-2a381",
+          storageBucket: "istazz-media-2a381.firebasestorage.app",
+          messagingSenderId: "684862202293",
+          appId: "1:684862202293:web:3f5f513c5c6034119139fc"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // DOM Elements
+        const pinterestGrid = document.getElementById("pinterestGrid");
+        const searchInput = document.getElementById("searchInput");
+        const searchForm = document.getElementById("searchForm");
+        const pinModal = document.getElementById("pinModal");
+        const modalClose = document.getElementById("modalClose");
+        const modalImage = document.getElementById("modalImage");
+        const modalTitle = document.getElementById("modalTitle");
+        const downloadBtn = document.getElementById("downloadBtn");
+        const shareBtn = document.getElementById("shareBtn");
+        const scrollToTop = document.getElementById("scrollToTop");
+        const toast = document.getElementById("toast");
+        const toastMessage = document.getElementById("toastMessage");
+
+        // Global variables
+        let allMedia = [];
+        let filteredMedia = [];
+        let currentMedia = null;
+
+        // Initialize the application
+        function init() {
+          loadMedia();
+          setupEventListeners();
+        }
+
+        // Fetch all media
+        async function loadMedia() {
+          try {
+            showSkeletonLoading();
             
-            let currentSlide = 0;
-            const totalSlides = slides.length;
-            const AUTO_SLIDE_INTERVAL = 6000; // 6 seconds
+            const querySnapshot = await getDocs(collection(db, "mediaLibrary"));
             
-            // Create indicators
-            for (let i = 0; i < totalSlides; i++) {
-                const indicator = document.createElement('div');
-                indicator.classList.add('indicator');
-                if (i === 0) indicator.classList.add('active');
-                indicator.addEventListener('click', () => goToSlide(i));
-                indicatorsContainer.appendChild(indicator);
+            if (querySnapshot.empty) {
+              showNoMediaMessage();
+              return;
             }
-            
-            const indicators = document.querySelectorAll('.indicator');
-            
-            // Function to update slideshow
-            function updateSlideshow() {
-                slideshow.style.transform = `translateX(-${currentSlide * 100}%)`;
-                
-                // Update active states
-                indicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === currentSlide);
+
+            allMedia = [];
+            querySnapshot.forEach((doc) => {
+              const data = doc.data();
+              const id = doc.id;
+              
+              // Only include items that have both image and title
+              if (data.title && (data.thumbnailUrl || data.fileUrl)) {
+                allMedia.push({ 
+                  id, 
+                  title: data.title,
+                  imageUrl: data.thumbnailUrl || data.fileUrl,
+                  description: data.description || "",
+                  date: data.date || ""
                 });
-            }
-            
-            // Next slide function
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                updateSlideshow();
-            }
-            
-            // Previous slide function
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                updateSlideshow();
-            }
-            
-            // Go to specific slide
-            function goToSlide(index) {
-                currentSlide = index;
-                updateSlideshow();
-            }
-            
-            // Event listeners
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
-            
-            // Auto-advance slides every 6 seconds
-            let slideInterval = setInterval(nextSlide, AUTO_SLIDE_INTERVAL);
-            
-            // Pause auto-advance on hover
-            slideshow.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
+              }
             });
+
+            // Shuffle for Pinterest-like random layout
+            allMedia = shuffleArray(allMedia);
+            filteredMedia = [...allMedia];
             
-            slideshow.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(nextSlide, AUTO_SLIDE_INTERVAL);
+            displayMedia();
+            
+            showToast("Loaded " + allMedia.length + " images", "success");
+          } catch (error) {
+            console.error("Error loading media:", error);
+            showErrorMessage("Error loading media. Please check your connection.");
+          }
+        }
+
+        // Shuffle array for Pinterest random layout
+        function shuffleArray(array) {
+          const shuffled = [...array];
+          for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+          }
+          return shuffled;
+        }
+
+        // Display media items in Pinterest grid
+        function displayMedia() {
+          pinterestGrid.innerHTML = "";
+
+          if (filteredMedia.length === 0) {
+            showNoResultsMessage();
+            return;
+          }
+
+          filteredMedia.forEach((item, index) => {
+            const { id, title, imageUrl } = item;
+            const displayTitle = title || "Untitled";
+            
+            // Create pin card
+            const pinCard = document.createElement("div");
+            pinCard.className = "pin-card";
+            pinCard.setAttribute("data-id", id);
+            pinCard.setAttribute("data-index", index);
+
+            // Create image wrapper with fixed aspect ratio based on random size
+            const randomHeight = Math.floor(Math.random() * 300) + 200; // 200-500px height
+            pinCard.style.height = randomHeight + "px";
+
+            pinCard.innerHTML = `
+              <div class="pin-image-wrapper">
+                <img 
+                  class="pin-image" 
+                  src="${imageUrl}" 
+                  alt="${displayTitle}"
+                  loading="lazy"
+                  onload="this.classList.add('loaded'); this.parentElement.style.backgroundColor = 'transparent';"
+                  onerror="handleImageError(this)"
+                >
+                <div class="pin-overlay"></div>
+                <div class="pin-actions">
+                  <button class="pin-action-btn save-btn">
+                    <i class="bi-bookmark"></i>
+                  </button>
+                  <button class="pin-action-btn share-btn">
+                    <i class="bi-share"></i>
+                  </button>
+                </div>
+                <div class="pin-title">
+                  <div class="pin-title-text">${displayTitle}</div>
+                </div>
+              </div>
+            `;
+
+            // Add click event to open modal
+            pinCard.addEventListener('click', (e) => {
+              if (!e.target.closest('.pin-action-btn')) {
+                openModal(item, index);
+              }
             });
+
+            // Add save button functionality
+            const saveBtn = pinCard.querySelector('.save-btn');
+            saveBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              savePin(item);
+            });
+
+            // Add share button functionality
+            const shareBtn = pinCard.querySelector('.share-btn');
+            shareBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              sharePin(item);
+            });
+
+            pinterestGrid.appendChild(pinCard);
+          });
+        }
+
+        // Handle image loading errors
+        function handleImageError(img) {
+          img.classList.add('loaded');
+          img.parentElement.style.backgroundColor = '#f0f0f0';
+          img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="400" viewBox="0 0 300 400"%3E%3Crect width="300" height="400" fill="%23f0f0f0"/%3E%3Ctext x="50%" y="50%" font-family="Arial" font-size="14" fill="%23999" text-anchor="middle" dy=".3em"%3EImage not available%3C/text%3E%3C/svg%3E';
+        }
+
+        // Open modal with pin details
+        function openModal(item, index) {
+          currentMedia = item;
+          
+          const title = item.title || "Untitled";
+          const imageUrl = item.imageUrl;
+
+          // Set modal content
+          modalTitle.textContent = title;
+          modalImage.innerHTML = `
+            <img src="${imageUrl}" alt="${title}" 
+                 onload="this.style.opacity='1'"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\"%3E%3Crect width=\"600\" height=\"400\" fill=\"%23f0f0f0\"/%3E%3Ctext x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"16\" fill=\"%23999\" text-anchor=\"middle\" dy=\".3em\"%3EImage not available%3C/text%3E%3C/svg%3E'"
+                 style="opacity:0; transition: opacity 0.3s;">
+          `;
+
+          // Set download button
+          downloadBtn.onclick = () => downloadImage(imageUrl, title);
+          
+          // Set share button
+          shareBtn.onclick = () => sharePin(item);
+
+          // Show modal
+          pinModal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+
+        // Close modal - FIXED VERSION
+        function closeModal() {
+          if (pinModal) {
+            pinModal.classList.remove("active");
+          }
+          document.body.style.overflow = "auto";
+        }
+
+        // Download image
+        function downloadImage(url, title) {
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = (title || 'image').replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.jpg';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          
+          showToast("Download started", "success");
+        }
+
+        // Share pin
+        function sharePin(item) {
+          const title = item.title || "Check out this image";
+          const url = item.imageUrl;
+          
+          if (navigator.share) {
+            navigator.share({
+              title: title,
+              text: `Found this on Istazz Media: ${title}`,
+              url: url,
+            })
+            .then(() => showToast("Shared successfully", "success"))
+            .catch((error) => console.log('Error sharing:', error));
+          } else {
+            // Fallback: copy to clipboard
+            navigator.clipboard.writeText(url)
+              .then(() => showToast("Link copied to clipboard", "success"))
+              .catch(err => {
+                console.error('Failed to copy: ', err);
+                showToast("Failed to share", "error");
+              });
+          }
+        }
+
+        // Save pin
+        function savePin(item) {
+          showToast("Saved to favorites", "success");
+        }
+
+        // Search functionality
+        function searchMedia(query) {
+          if (!query.trim()) {
+            filteredMedia = [...allMedia];
+            displayMedia();
+            return;
+          }
+
+          const searchTerm = query.toLowerCase().trim();
+          filteredMedia = allMedia.filter(item => {
+            const title = (item.title || "").toLowerCase();
+            const description = (item.description || "").toLowerCase();
             
-            // Initialize slideshow
-            updateSlideshow();
-        });
+            return title.includes(searchTerm) || description.includes(searchTerm);
+          });
+
+          displayMedia();
+        }
+
+        // Show skeleton loading
+        function showSkeletonLoading() {
+          pinterestGrid.innerHTML = '';
+          for (let i = 0; i < 15; i++) {
+            const skeleton = document.createElement('div');
+            skeleton.className = 'pin-skeleton';
+            // Random heights like real Pinterest
+            skeleton.style.height = `${Math.floor(Math.random() * 300) + 200}px`;
+            pinterestGrid.appendChild(skeleton);
+          }
+        }
+
+        // Show no media message
+        function showNoMediaMessage() {
+          pinterestGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #767676;">
+              <i class="bi-inbox" style="font-size: 48px; margin-bottom: 20px; display: block; color: #ddd;"></i>
+              <h3 style="margin-bottom: 12px; font-weight: 500;">No media found</h3>
+              <p style="margin-bottom: 24px;">Upload some images to your Firebase database to get started.</p>
+              <button onclick="window.loadMedia()" style="background: #e60023; color: white; border: none; padding: 12px 24px; border-radius: 24px; font-weight: 600; cursor: pointer; font-size: 14px;">
+                Try Again
+              </button>
+            </div>
+          `;
+        }
+
+        // Show no results message
+        function showNoResultsMessage() {
+          pinterestGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #767676;">
+              <i class="bi-search" style="font-size: 48px; margin-bottom: 20px; display: block; color: #ddd;"></i>
+              <h3 style="margin-bottom: 12px; font-weight: 500;">No results found</h3>
+              <p style="margin-bottom: 24px;">Try different search terms or browse all images.</p>
+              <button onclick="clearSearch()" style="background: #e60023; color: white; border: none; padding: 12px 24px; border-radius: 24px; font-weight: 600; cursor: pointer; font-size: 14px;">
+                Clear Search
+              </button>
+            </div>
+          `;
+        }
+
+        // Show error message
+        function showErrorMessage(message) {
+          pinterestGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #767676;">
+              <i class="bi-exclamation-triangle" style="font-size: 48px; margin-bottom: 20px; display: block; color: #e60023;"></i>
+              <h3 style="margin-bottom: 12px; font-weight: 500;">Something went wrong</h3>
+              <p style="margin-bottom: 24px;">${message}</p>
+              <button onclick="window.loadMedia()" style="background: #e60023; color: white; border: none; padding: 12px 24px; border-radius: 24px; font-weight: 600; cursor: pointer; font-size: 14px;">
+                Try Again
+              </button>
+            </div>
+          `;
+        }
+
+        // Clear search
+        function clearSearch() {
+          if (searchInput) {
+            searchInput.value = '';
+          }
+          filteredMedia = [...allMedia];
+          displayMedia();
+        }
+
+        // Show toast notification
+        function showToast(message, type = "success") {
+          if (toastMessage) {
+            toastMessage.textContent = message;
+          }
+          if (toast) {
+            toast.className = `toast ${type} visible`;
+            
+            setTimeout(() => {
+              toast.classList.remove('visible');
+            }, 3000);
+          }
+        }
+
+        // Setup event listeners - FIXED VERSION
+        function setupEventListeners() {
+          // Search form
+          if (searchForm && searchInput) {
+            searchForm.addEventListener('submit', (e) => {
+              e.preventDefault();
+              searchMedia(searchInput.value);
+            });
+
+            searchInput.addEventListener('input', (e) => {
+              if (e.target.value === '') {
+                filteredMedia = [...allMedia];
+                displayMedia();
+              }
+            });
+          }
+
+          // Modal close - FIXED
+          if (modalClose) {
+            modalClose.addEventListener('click', closeModal);
+          }
+          
+          // Close modal when clicking outside
+          if (pinModal) {
+            pinModal.addEventListener('click', (e) => {
+              if (e.target === pinModal) {
+                closeModal();
+              }
+            });
+          }
+
+          // Keyboard navigation
+          document.addEventListener('keydown', (e) => {
+            if (pinModal && pinModal.classList.contains('active')) {
+              if (e.key === 'Escape') {
+                closeModal();
+              }
+            }
+          });
+
+          // Scroll to top
+          if (scrollToTop) {
+            scrollToTop.addEventListener('click', () => {
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
+            });
+          }
+
+          // Show/hide scroll to top button
+          window.addEventListener('scroll', () => {
+            if (scrollToTop) {
+              if (window.pageYOffset > 500) {
+                scrollToTop.classList.add('visible');
+              } else {
+                scrollToTop.classList.remove('visible');
+              }
+            }
+          });
+        }
+
+        // Make functions available globally for onclick handlers
+        window.loadMedia = loadMedia;
+        window.clearSearch = clearSearch;
+        window.handleImageError = handleImageError;
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', init);
     </script>
-</section>
-<script>
-    const AUTO_SLIDE_INTERVAL = 6000; // 6 seconds
-</script>
-    <!-- CTA Section -->
-    <section class="cta" id="contact">
-        <div class="container">
-            <h2>Ready to Amplify Your Brand?</h2>
-            <p>Let's work together to build your media presence, shape compelling stories, and connect with your target audience through strategic PR and media relations.</p>
-            <a href="contactus.html" class="btn">Start Your PR Campaign</a>
-        </div>
-    </section>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <!-- Company Info Section -->
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
-                        <div class="logo-text">Istazz Media</div>
-                    </div>
-                    <p class="footer-description"> A uniquely structured media agency with an eye 
-                            f or excellence in branding, event management 
-                            and production solutions, all with  an urge to 
-                            exceed customer expectations.
-                            We are founded on a philosophy of  'Creative 
-                            Simplicity' where we seek to always use new and 
-                            i nnovative techniques and solutions to meet the 
-                            needs of our clients.
-                            Creativity is in our DNA.</p>
-                                                
-                  
-                    <div class="social-links">
-                        <h4>Follow Us</h4>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com/share/1DEnuTKxai/" class="social-link" aria-label="Facebook">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                            <a href="https://www.instagram.com/istazzmedia?igsh=MXVqbW9ydjk2M2hkYQ==" class="social-link" aria-label="Instagram">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Twitter">
-                                <i class="bi bi-twitter"></i>
-                            </a>
-                            <a href="https://youtube.com/@istazzmedia-gig?si=HsHSVKgYco8G-lao" class="social-link" aria-label="YouTube">
-                                <i class="bi bi-youtube"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="LinkedIn">
-                                <i class="bi bi-linkedin"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Pinterest">
-                                <i class="bi bi-pinterest"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Services Section -->
-                <div class="footer-section">
-                    <h3>Our Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Brand Photography</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Corporate Events</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Product Photography</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Video Production</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Drone Photography</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Photo Editing</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Media Training</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Social Media Content</a></li>
-                    </ul>
-                </div>
-
-                <!-- Quick Links Section -->
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Services</a></li>
-                        <li><a href="ourwork.html"><i class="bi bi-chevron-right"></i> Portfolio</a></li>
-                        <li><a href="ourclients.html"><i class="bi bi-chevron-right"></i> Our Clients</a></li>
-                        <li><a href="aboutus.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
-                        <li><a href="contactus.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Blog</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Testimonials</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact & Support Section -->
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links contact-info">
-                        <li>
-                            <a href="#">
-                                <i class="bi bi-geo-alt"></i>
-                                <span>Nairobi, Kenya<br><small>Mbuni drive,off new garden estate road</small></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tel:+254712345678">
-                                <i class="bi bi-telephone"></i>
-                                <span>+254 725 116 708<br><small>24/7</small></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tel:+254734567890">
-                                <i class="bi bi-phone"></i>
-                                <span>+254 725 116 708<br><small>Emergency Support</small></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Footer Bottom Section -->
-            <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <div class="copyright">
-                        <p>&copy; 2025 Istazz Media. All rights reserved.</p>
-                    </div>
-                  
-                </div>
-                
-                <div class="footer-credits">
-                    <p>Designed with <i class="bi bi-heart-fill" style="color: var(--primary);"></i> by Istazz Media Team</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <!-- SIMPLE FIX FOR MODAL CLOSE BUTTON - Ensures it works even if module fails -->
     <script>
-        // Newsletter form submission
         document.addEventListener('DOMContentLoaded', function() {
-            const newsletterForm = document.querySelector('.newsletter-form');
-            if (newsletterForm) {
-                const newsletterInput = newsletterForm.querySelector('input');
-                const newsletterBtn = newsletterForm.querySelector('.newsletter-btn');
-                
-                newsletterBtn.addEventListener('click', function(e) {
+            // Direct fix for modal close button
+            const closeBtn = document.getElementById('modalClose');
+            const modal = document.getElementById('pinModal');
+            
+            if (closeBtn && modal) {
+                closeBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
-                    const email = newsletterInput.value.trim();
-                    
-                    if (!email) {
-                        showNewsletterMessage('Please enter your email address', 'error');
-                        return;
-                    }
-                    
-                    if (!isValidEmail(email)) {
-                        showNewsletterMessage('Please enter a valid email address', 'error');
-                        return;
-                    }
-                    
-                    // Simulate subscription success
-                    showNewsletterMessage('Thank you for subscribing to our newsletter!', 'success');
-                    newsletterInput.value = '';
+                    e.stopPropagation();
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
                 });
-                
-                // Also handle Enter key in the input field
-                newsletterInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        newsletterBtn.click();
-                    }
-                });
-                
-                function isValidEmail(email) {
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    return emailRegex.test(email);
-                }
-                
-                function showNewsletterMessage(message, type) {
-                    // Create toast notification
-                    const toast = document.createElement('div');
-                    toast.className = `toast ${type}`;
-                    toast.innerHTML = `
-                        <div class="toast-icon">
-                            <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-                        </div>
-                        <div class="toast-message">${message}</div>
-                    `;
-                    
-                    document.body.appendChild(toast);
-                    
-                    // Trigger animation
-                    setTimeout(() => {
-                        toast.classList.add('visible');
-                    }, 10);
-                    
-                    // Remove after delay
-                    setTimeout(() => {
-                        toast.classList.remove('visible');
-                        setTimeout(() => {
-                            if (document.body.contains(toast)) {
-                                document.body.removeChild(toast);
-                            }
-                        }, 300);
-                    }, 3000);
-                }
             }
+            
+            // Also close when clicking outside modal
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+            
+            // Close with ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Ensure images are clickable
+            setTimeout(function() {
+                const pinCards = document.querySelectorAll('.pin-card');
+                pinCards.forEach(card => {
+                    if (!card.hasAttribute('data-click-attached')) {
+                        card.setAttribute('data-click-attached', 'true');
+                        card.addEventListener('click', function(e) {
+                            if (!e.target.closest('.pin-action-btn')) {
+                                const id = this.getAttribute('data-id');
+                                const index = this.getAttribute('data-index');
+                                if (id && allMedia && allMedia[index]) {
+                                    openModal(allMedia[index], index);
+                                }
+                            }
+                        });
+                    }
+                });
+            }, 1000);
         });
     </script>
 </body>
