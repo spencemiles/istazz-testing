@@ -3,18 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854271/favcon003_vgothc.png">
-    <title>ISTAZZ EVENTS | Curate Unforgettable Experiences</title>
-    
-    <!-- Google Fonts for Comic Neue -->
+    <title>ISTAZZ PR & MEDIA RELATIONS | Building Your Brand Presence</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     
     <style>
+        /* UNIVERSAL FONT FIX - APPLIED TO EVERYTHING */
+        *,
+        *:before,
+        *:after,
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video,
+        button,
+        input,
+        select,
+        textarea {
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        /* Ensure all text elements inherit the font */
+        body * {
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
         /* Base Styles */
         :root {
             --hotpink: #FF1493;
@@ -28,7 +121,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         body {
@@ -36,7 +128,6 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .container {
@@ -53,13 +144,11 @@
         h1, h2, h3, h4 {
             margin-bottom: 20px;
             font-weight: 700;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         h1 {
             font-size: 3.5rem;
             line-height: 1.2;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         h2 {
@@ -67,12 +156,10 @@
             text-align: center;
             margin-bottom: 50px;
             position: relative;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         h2:after {
             content: '';
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
             position: absolute;
             bottom: -15px;
             left: 50%;
@@ -85,7 +172,6 @@
         p {
             margin-bottom: 20px;
             font-size: 1.1rem;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .btn {
@@ -100,7 +186,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .btn:hover {
@@ -108,7 +193,7 @@
             box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
         }
         
-        /* HERO SECTION - FIXED FOR ALL SCREENS */
+        /* Staircase Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -116,46 +201,40 @@
             justify-content: center;
             position: relative;
             background: 
+                /* Dark gradient overlay for better text visibility */
                 linear-gradient(135deg, 
                     rgba(10, 10, 10, 0.85) 0%, 
                     rgba(26, 26, 46, 0.8) 50%, 
                     rgba(22, 33, 62, 0.85) 100%),
+                /* Brand gradient overlay */
                 linear-gradient(135deg, 
                     rgba(255, 20, 147, 0.2) 0%, 
                     rgba(30, 144, 255, 0.15) 100%),
-                url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                /* Background image - Media relations */
+                url('https://images.unsplash.com/photo-1551836026-d5c8f1e67f16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            padding: 100px 20px;
+            padding: 0 20px;
             overflow: hidden;
             text-align: center;
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 800px;
             position: relative;
             z-index: 2;
-            width: 100%;
         }
 
         .staircase-text {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 2rem;
-            width: 100%;
-            padding-left: 10%;
-        }
-
-        @media (min-width: 1200px) {
-            .staircase-text {
-                padding-left: 15%;
-            }
         }
 
         .text-line {
-            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-size: 3rem;
             font-weight: 900;
             background: linear-gradient(135deg, #FF1493 0%, #1E90FF 100%);
             -webkit-background-clip: text;
@@ -171,50 +250,45 @@
             animation: fadeInUp 0.8s ease-out forwards;
             position: relative;
             width: fit-content;
-            text-align: left;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         /* Staircase positioning */
         .text-line:nth-child(1) {
             animation-delay: 0.2s;
+            /* ISTAZZ PR & MEDIA - centered */
             margin-left: 0;
         }
 
         .text-line:nth-child(2) {
             animation-delay: 0.4s;
-            margin-left: clamp(20px, 5vw, 80px);
+            /* BUILDING BRANDS - starts under "MEDIA" and extends to the right */
+            margin-left: 80px;
         }
 
         .text-line:nth-child(3) {
             animation-delay: 0.6s;
-            margin-left: clamp(40px, 10vw, 160px);
-        }
-
-        .text-line:nth-child(4) {
-            animation-delay: 0.8s;
-            margin-left: clamp(60px, 15vw, 240px);
+            /* SHAPING STORIES - starts under "BRANDS" and extends to the right */
+            margin-left: 160px;
         }
 
         .hero-description {
-            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-size: 1.1rem;
             color: #e0e0e0;
             margin-bottom: 2.5rem;
             line-height: 1.6;
-            max-width: 600px;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
             text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 0.8s ease-out forwards;
-            animation-delay: 1s;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+            animation-delay: 0.8s;
         }
 
         .hero-btn {
             display: inline-block;
-            padding: clamp(12px, 2vw, 16px) clamp(25px, 4vw, 40px);
+            padding: 14px 35px;
             background: linear-gradient(135deg, #FF1493 0%, #1E90FF 100%);
             color: white;
             text-decoration: none;
@@ -226,12 +300,11 @@
             box-shadow: 0 5px 20px rgba(255, 20, 147, 0.4);
             border: none;
             cursor: pointer;
-            font-size: clamp(0.85rem, 1.5vw, 1rem);
+            font-size: 0.9rem;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 0.8s ease-out forwards;
-            animation-delay: 1.2s;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+            animation-delay: 1s;
         }
 
         .hero-btn:hover {
@@ -271,7 +344,6 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .service-card:hover {
@@ -288,7 +360,6 @@
             color: white;
             font-size: 1.5rem;
             font-weight: 700;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .service-content {
@@ -296,28 +367,24 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .service-content h3 {
             color: var(--dark-blue);
             font-size: 1.5rem;
             margin-bottom: 15px;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .service-features {
             list-style: none;
             margin: 15px 0;
             flex-grow: 1;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .service-features li {
             margin-bottom: 8px;
             padding-left: 20px;
             position: relative;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .service-features li:before {
@@ -326,76 +393,11 @@
             left: 0;
             color: var(--hotpink);
             font-weight: bold;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .service-btn {
             margin-top: auto;
             align-self: flex-start;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-        }
-        
-        /* Techniques Section */
-        .techniques {
-            background: linear-gradient(135deg, rgba(255, 20, 147, 0.05) 0%, rgba(30, 144, 255, 0.05) 100%);
-            padding: 80px 0;
-        }
-        
-        .techniques-slider {
-            position: relative;
-            overflow: hidden;
-            height: 300px;
-            margin: 40px 0;
-        }
-        
-        .techniques-track {
-            display: flex;
-            position: absolute;
-            left: 0;
-            top: 0;
-            animation: slide 30s linear infinite;
-        }
-        
-        .technique-item {
-            flex: 0 0 200px;
-            height: 280px;
-            margin: 0 15px;
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            transition: all 0.3s ease;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-        }
-        
-        .technique-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .technique-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, var(--hotpink), var(--blue));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: white;
-            font-size: 1.8rem;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-        }
-        
-        .technique-name {
-            font-weight: 600;
-            color: var(--dark-blue);
-            text-align: center;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         /* CTA Section */
@@ -404,13 +406,11 @@
             color: var(--white);
             text-align: center;
             padding: 100px 0;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .cta h2 {
             color: var(--white);
             margin-bottom: 30px;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .cta h2:after {
@@ -421,53 +421,17 @@
             max-width: 700px;
             margin: 0 auto 40px;
             font-size: 1.2rem;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .cta .btn {
             background: var(--white);
             color: var(--hotpink);
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
-        /* Animations */
-        @keyframes slide {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 1200px) {
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .staircase-text {
-                padding-left: 5%;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .hero {
-                padding: 120px 20px 80px;
-            }
-            
-            .staircase-text {
-                align-items: center;
-                padding-left: 0;
-            }
-            
-            .text-line {
-                text-align: center;
-                margin-left: 0 !important;
-            }
-            
-            .hero-description {
-                max-width: 500px;
             }
         }
         
@@ -480,34 +444,39 @@
                 font-size: 2rem;
             }
             
-            section {
-                padding: 60px 0;
-            }
-            
-            .hero {
-                padding: 100px 20px 60px;
-                min-height: 90vh;
-            }
-            
             .text-line {
                 font-size: 2.2rem;
+                letter-spacing: 1.5px;
+            }
+            
+            .text-line:nth-child(2) {
+                margin-left: 50px;
+            }
+
+            .text-line:nth-child(3) {
+                margin-left: 100px;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+                max-width: 400px;
+            }
+            
+            .hero-btn {
+                padding: 12px 30px;
+                font-size: 0.85rem;
             }
             
             .services-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
             
-            .service-image {
-                height: 180px;
-            }
-            
-            .cta {
-                padding: 80px 0;
+            .slide img {
+                height: 350px;
             }
         }
-        
-        @media (max-width: 576px) {
+
+        @media (max-width: 480px) {
             h1 {
                 font-size: 2rem;
             }
@@ -516,51 +485,157 @@
                 font-size: 1.8rem;
             }
             
-            .hero {
-                padding: 80px 20px 40px;
-                min-height: 80vh;
-            }
-            
             .text-line {
                 font-size: 1.8rem;
-                letter-spacing: 1px;
             }
             
-            .hero-description {
-                font-size: 1rem;
-                padding: 0 10px;
+            .text-line:nth-child(2) {
+                margin-left: 30px;
             }
-            
-            .hero-btn {
-                padding: 12px 25px;
-                font-size: 0.9rem;
-            }
-        }
-        
-        @media (max-width: 400px) {
-            .text-line {
-                font-size: 1.6rem;
+
+            .text-line:nth-child(3) {
+                margin-left: 60px;
             }
             
             .hero-description {
                 font-size: 0.95rem;
+                max-width: 350px;
             }
             
-            .hero-btn {
-                padding: 10px 20px;
-                font-size: 0.85rem;
+            .slide img {
+                height: 250px;
+            }
+            
+            .slideshow-nav button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
         }
     </style>
-    
-    <!-- Navigation Styles -->
+</head>
+<body>
+
+    <!-- Navigation Section (Same as your existing code) -->
+<section id="navigation-section">
+    <!-- Desktop Header -->
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
+                <div class="logo-tagline">creative simplicity</div>
+            </a>
+            
+            <nav>
+                <div class="nav-blue-section"></div>
+                <ul id="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#branding">Branding</a>
+                            <a href="#events">Events</a>
+                            <a href="#production">Production</a>
+                            <a href="#pr-media">PR & Media Relations</a>
+                            <a href="#web-development">Web Development</a>
+                        </div>
+                    </li>
+                    <li><a href="ourwork.html">Our Work</a></li>
+                    <li><a href="ourclients.html">Clients</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contactus.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Top Header -->
+    <div class="mobile-top-header">
+        <div class="mobile-logo-container">
+            <a href="index.html" class="mobile-logo">
+                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
+                <div class="mobile-logo-tagline">creative simplicity</div>
+            </a>
+        </div>
+        <button class="mobile-nav-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu" id="mobileNavMenu">
+        <ul>
+            <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="ourwork.html"><i class="fas fa-briefcase"></i> Our Work</a></li>
+            <li><a href="ourclients.html"><i class="fas fa-users"></i> Clients</a></li>
+            <li><a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="contactus.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Mobile Bottom Navigation - FIXED VISIBILITY -->
+    <nav class="bottom-nav">
+        <ul class="bottom-nav-items">
+            <li>
+                <a href="index.html" class="bottom-nav-item active">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="services.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+                    </svg>
+                    <span>Services</span>
+                </a>
+            </li>
+            <li>
+                <a href="ourwork.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z"/>
+                    </svg>
+                    <span>Our Work</span>
+                </a>
+            </li>
+            <li>
+                <a href="ourclients.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                    </svg>
+                    <span>Clients</span>
+                </a>
+            </li>
+            <li>
+                <a href="contactus.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span>Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="aboutus.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                    </svg>
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
     <style>
-        /* FONT FIX: Updated base styles */
+        /* FONT FIX 3: Updated base styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         :root {
@@ -594,7 +669,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .header-container {
@@ -647,7 +721,6 @@
             border-radius: 6px;
             border-left: 2px solid #e5e7eb;
             margin-left: 8px;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
             flex-shrink: 0;
         }
         
@@ -713,7 +786,6 @@
             border: none !important;
             text-align: center;
             justify-content: center;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
             white-space: nowrap;
         }
         
@@ -765,7 +837,6 @@
             font-size: 13px !important; /* Reduced font size */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6) !important;
             background: transparent !important;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
             white-space: nowrap;
         }
         
@@ -883,7 +954,6 @@
             background: #f8fafc;
             border-radius: 4px;
             border-left: 2px solid #e5e7eb;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
             flex-shrink: 0;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -947,7 +1017,6 @@
             font-weight: 500;
             transition: all 0.3s ease;
             font-size: 15px;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .mobile-nav-menu ul li a i {
@@ -1020,7 +1089,6 @@
             height: 100%;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9) !important;
             background: transparent !important;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .bottom-nav-item svg {
@@ -1361,810 +1429,6 @@
             }
         }
     </style>
-</head>
-<body>
-    <section id="navigation-section">
-        <!-- Desktop Header -->
-        <header id="header">
-            <div class="header-container">
-                <a href="index.html" class="logo">
-                    <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
-                    <div class="logo-tagline">creative simplicity</div>
-                </a>
-                
-                <nav>
-                    <div class="nav-blue-section"></div>
-                    <ul id="nav-menu">
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li class="dropdown">
-                            <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
-                            <div class="dropdown-content">
-                                <a href="#branding">Branding</a>
-                                <a href="#events">Events</a>
-                                <a href="#production">Production</a>
-                                <a href="#pr-media">PR & Media Relations</a>
-                                <a href="#web-development">Web Development</a>
-                            </div>
-                        </li>
-                        <li><a href="ourwork.html">Our Work</a></li>
-                        <li><a href="ourclients.html">Clients</a></li>
-                        <li><a href="aboutus.html">About Us</a></li>
-                        <li><a href="contactus.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-
-        <!-- Mobile Top Header -->
-        <div class="mobile-top-header">
-            <div class="mobile-logo-container">
-                <a href="index.html" class="mobile-logo">
-                    <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
-                    <div class="mobile-logo-tagline">creative simplicity</div>
-                </a>
-            </div>
-            <button class="mobile-nav-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Navigation Menu -->
-        <div class="mobile-nav-menu" id="mobileNavMenu">
-            <ul>
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
-                <li><a href="ourwork.html"><i class="fas fa-briefcase"></i> Our Work</a></li>
-                <li><a href="ourclients.html"><i class="fas fa-users"></i> Clients</a></li>
-                <li><a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-                <li><a href="contactus.html"><i class="fas fa-envelope"></i> Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- Mobile Bottom Navigation - FIXED VISIBILITY -->
-        <nav class="bottom-nav">
-            <ul class="bottom-nav-items">
-                <li>
-                    <a href="index.html" class="bottom-nav-item active">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                        </svg>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="services.html" class="bottom-nav-item">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
-                        </svg>
-                        <span>Services</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="ourwork.html" class="bottom-nav-item">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z"/>
-                        </svg>
-                        <span>Our Work</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="ourclients.html" class="bottom-nav-item">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
-                        </svg>
-                        <span>Clients</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="contactus.html" class="bottom-nav-item">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                        <span>Contact</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="aboutus.html" class="bottom-nav-item">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="12" y1="16" x2="12" y2="12"/>
-                            <line x1="12" y1="8" x2="12.01" y2="8"/>
-                        </svg>
-                        <span>About</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </section>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="staircase-text">
-                <div class="text-line">Istazz Events</div>
-                <div class="text-line">Curate</div>
-                <div class="text-line">Unforgettable</div>
-                <div class="text-line">Experiences</div>
-            </div>
-            <p class="hero-description">Bringing your vision to life through professional TV, radio, digital production, and stunning visual storytelling.</p>
-            <a href="services.html" class="hero-btn">Enquire</a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 style="color: #68b2fc;">Our Event Services</h2>
-            <div class="services-grid">
-                <!-- Concept Development -->
-                <div class="service-card">
-                    <div class="service-image">Concept Development</div>
-                    <div class="service-content">
-                        <h3>Concept Development</h3>
-                        <p>Transform your ideas into cohesive event concepts with creative themes, storytelling, and unique experiences that resonate with your audience.</p>
-                        <ul class="service-features">
-                            <li>Creative Theme Development</li>
-                            <li>Event Storytelling & Narrative</li>
-                            <li>Experience Design & Flow</li>
-                            <li>Brand Integration & Activation</li>
-                            <li>Guest Journey Mapping</li>
-                        </ul>
-                        <a href="contactus.html" class="btn service-btn">Discuss Your Vision</a>
-                    </div>
-                </div>
-                
-                <!-- Audio Visuals & Stage Setup -->
-                <div class="service-card">
-                    <div class="service-image">Audio Visuals</div>
-                    <div class="service-content">
-                        <h3>Audio Visuals & Stage Setup</h3>
-                        <p>Create immersive environments with professional sound, lighting, and visual effects that elevate your event to extraordinary heights.</p>
-                        <ul class="service-features">
-                            <li>Professional Sound Systems</li>
-                            <li>Stage Design & Construction</li>
-                            <li>LED Walls & Projection Mapping</li>
-                            <li>Lighting Design & Effects</li>
-                            <li>Live Streaming & Recording</li>
-                        </ul>
-                        <a href="contactus.html" class="btn service-btn">Enquire</a>
-                    </div>
-                </div>
-                
-                <!-- Tents & Furniture -->
-                <div class="service-card">
-                    <div class="service-image">Tents & Furniture</div>
-                    <div class="service-content">
-                        <h3>Tents & Furniture</h3>
-                        <p>Complete venue solutions with elegant tents, stylish furniture, and comfortable seating arrangements for any event size and style.</p>
-                        <ul class="service-features">
-                            <li>Marquee & Structure Tents</li>
-                            <li>Lounge & Banquet Seating</li>
-                            <li>Custom Furniture Rentals</li>
-                            <li>Décor & Styling Elements</li>
-                            <li>Floor Planning & Layout Design</li>
-                        </ul>
-                        <a href="contactus.html" class="btn service-btn">Enquire</a>
-                    </div>
-                </div>
-                
-                <!-- Talent Management -->
-                <div class="service-card">
-                    <div class="service-image">Talent Management</div>
-                    <div class="service-content">
-                        <h3>Talent Management</h3>
-                        <p>Connect with the perfect performers, speakers, and entertainers to bring energy, expertise, and excitement to your event.</p>
-                        <ul class="service-features">
-                            <li>Entertainment Booking</li>
-                            <li>Speaker & MC Coordination</li>
-                            <li>Artist Management & Logistics</li>
-                            <li>Performance Scheduling</li>
-                            <li>Talent Contract Negotiation</li>
-                        </ul>
-                        <a href="contactus.html" class="btn service-btn">Enquire</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Event Elements Section -->
-    <section class="branding-slideshow">
-        <h2>Our Branding Equipment & Techniques</h2>
-        <div class="image-track">
-            <!-- Equipment Images -->
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762589749/Audio_Equipment_ekew8h.jpg" alt="Audio Equipment">
-                <div class="image-overlay">
-                    <h3>Audio Equipment</h3>
-                    <p>Professional sound systems for events</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762589827/Lighting_Equipment_ntybh5.webp" alt="Lighting Equipment">
-                <div class="image-overlay">
-                    <h3>Lighting Equipment</h3>
-                    <p>Stage and ambient lighting solutions</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762589969/Visual_Display_Equipment_foifdk.webp" alt="Visual Display Equipment">
-                <div class="image-overlay">
-                    <h3>Visual Display Equipment</h3>
-                    <p>Screens and projection systems</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762590054/Photography_Videography_Equipment_tqmqxv.jpg" alt="Photography & Videography Equipment">
-                <div class="image-overlay">
-                    <h3>Photo & Video Equipment</h3>
-                    <p>Professional cameras and recording gear</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762590117/Staging_Structural_Elements_uvaojk.webp" alt="Staging & Structural Elements">
-                <div class="image-overlay">
-                    <h3>Staging & Structures</h3>
-                    <p>Event stages and structural setups</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762590731/Branding_Signage_zb7xmt.jpg" alt="Branding & Signage">
-                <div class="image-overlay">
-                    <h3>Branding & Signage</h3>
-                    <p>Custom signs and brand displays</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762590733/Furniture_Decor_ife5xo.webp" alt="Furniture & Decor">
-                <div class="image-overlay">
-                    <h3>Furniture & Decor</h3>
-                    <p>Event furniture and decorative elements</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762590816/Power_Electrical_gd7fxt.jpg" alt="Power & Electrical">
-                <div class="image-overlay">
-                    <h3>Power & Electrical</h3>
-                    <p>Power distribution and electrical setups</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762590862/Control_Technical_Equipment_l190dg.jpg" alt="Control & Technical Equipment">
-                <div class="image-overlay">
-                    <h3>Control Systems</h3>
-                    <p>Technical control and monitoring equipment</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762590978/Safety_Utility_hqaui2.jpg" alt="Safety & Utility">
-                <div class="image-overlay">
-                    <h3>Safety & Utility</h3>
-                    <p>Safety equipment and utility gear</p>
-                </div>
-            </div>
-
-            <!-- Branding Techniques Images -->
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582800/Large_Format_Printing_dw2svv.webp" alt="Large Format Printing">
-                <div class="image-overlay">
-                    <h3>Large Format Printing</h3>
-                    <p>Billboards and large-scale displays</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582797/Digital_Branding_pytmsf.png" alt="Digital Branding">
-                <div class="image-overlay">
-                    <h3>Digital Branding</h3>
-                    <p>Online presence and digital marketing</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582817/Offset_Printing_npanov.jpg" alt="Offset Printing">
-                <div class="image-overlay">
-                    <h3>Offset Printing</h3>
-                    <p>High-volume commercial printing</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582813/UV_Printing_z01ocw.webp" alt="UV Printing">
-                <div class="image-overlay">
-                    <h3>UV Printing</h3>
-                    <p>Durable prints with UV curing</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582800/laser-cutting_nj0mr7.webp" alt="Laser Cutting">
-                <div class="image-overlay">
-                    <h3>Laser Cutting</h3>
-                    <p>Precision cutting for materials</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582797/CNC_Machining_uo87za.jpg" alt="CNC Machining">
-                <div class="image-overlay">
-                    <h3>CNC Machining</h3>
-                    <p>Computer-controlled manufacturing</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582798/Embroidery_sm1ugk.webp" alt="Embroidery">
-                <div class="image-overlay">
-                    <h3>Embroidery</h3>
-                    <p>Thread-based branding on fabrics</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582798/Embossing_tofiw2.webp" alt="Embossing">
-                <div class="image-overlay">
-                    <h3>Embossing</h3>
-                    <p>Raised texture effects</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582799/Engraving_zknw2k.jpg" alt="Engraving">
-                <div class="image-overlay">
-                    <h3>Engraving</h3>
-                    <p>Permanent etched designs</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582801/Screen_Print_isesz6.webp" alt="Screen Print">
-                <div class="image-overlay">
-                    <h3>Screen Printing</h3>
-                    <p>Ink-based printing on various surfaces</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582813/Vinyl_Cut_mr9esj.jpg" alt="Vinyl Cut">
-                <div class="image-overlay">
-                    <h3>Vinyl Cutting</h3>
-                    <p>Precision vinyl applications</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582798/Heat_Press_k7osrm.webp" alt="Heat Press">
-                <div class="image-overlay">
-                    <h3>Heat Press</h3>
-                    <p>Thermal transfer applications</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582798/images_cus1kw.jpg" alt="Painting">
-                <div class="image-overlay">
-                    <h3>Custom Painting</h3>
-                    <p>Hand-painted brand elements</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582801/signaturing_mac50l.webp" alt="Signaturing">
-                <div class="image-overlay">
-                    <h3>Signaturing</h3>
-                    <p>Custom signature applications</p>
-                </div>
-            </div>
-
-            <!-- Duplicate for seamless loop -->
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762589749/Audio_Equipment_ekew8h.jpg" alt="Audio Equipment">
-                <div class="image-overlay">
-                    <h3>Audio Equipment</h3>
-                    <p>Professional sound systems for events</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762589827/Lighting_Equipment_ntybh5.webp" alt="Lighting Equipment">
-                <div class="image-overlay">
-                    <h3>Lighting Equipment</h3>
-                    <p>Stage and ambient lighting solutions</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762589969/Visual_Display_Equipment_foifdk.webp" alt="Visual Display Equipment">
-                <div class="image-overlay">
-                    <h3>Visual Display Equipment</h3>
-                    <p>Screens and projection systems</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762590054/Photography_Videography_Equipment_tqmqxv.jpg" alt="Photography & Videography Equipment">
-                <div class="image-overlay">
-                    <h3>Photo & Video Equipment</h3>
-                    <p>Professional cameras and recording gear</p>
-                </div>
-            </div>
-            
-            <div class="image-card">
-                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762590117/Staging_Structural_Elements_uvaojk.webp" alt="Staging & Structural Elements">
-                <div class="image-overlay">
-                    <h3>Staging & Structures</h3>
-                    <p>Event stages and structural setups</p>
-                </div>
-            </div>
-        </div>
-        
-        <style>
-            .branding-slideshow {
-                padding: 80px 0;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                overflow: hidden;
-                position: relative;
-                font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-            }
-            
-            .branding-slideshow h2 {
-                text-align: center;
-                margin-bottom: 50px;
-                font-size: 3rem;
-                color: white;
-                font-weight: 800;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-                position: relative;
-                padding-bottom: 20px;
-                font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-            }
-            
-            .branding-slideshow h2:after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 120px;
-                height: 4px;
-                background: linear-gradient(to right, #FF1493, #1E90FF);
-                border-radius: 2px;
-                font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-            }
-            
-            .image-track {
-                display: flex;
-                gap: 25px;
-                width: max-content;
-                animation: slide 60s linear infinite;
-                padding: 20px 0;
-                font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-            }
-            
-            .image-card {
-                position: relative;
-                width: 280px;
-                height: 200px;
-                border-radius: 15px;
-                overflow: hidden;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-                transition: all 0.4s ease;
-                flex-shrink: 0;
-            }
-            
-            .image-card:hover {
-                transform: scale(1.08);
-                box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-            }
-            
-            .image-card img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.5s ease;
-            }
-            
-            .image-card:hover img {
-                transform: scale(1.1);
-            }
-            
-            .image-overlay {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: linear-gradient(transparent, rgba(0,0,0,0.9));
-                color: white;
-                padding: 25px 20px 20px;
-                transform: translateY(0);
-                transition: all 0.4s ease;
-            }
-            
-            .image-card:hover .image-overlay {
-                background: linear-gradient(transparent, rgba(255, 20, 147, 0.9));
-                padding-bottom: 25px;
-            }
-            
-            .image-overlay h3 {
-                font-size: 1.3rem;
-                font-weight: 700;
-                margin-bottom: 8px;
-                color: white;
-                font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-            }
-            
-            .image-overlay p {
-                font-size: 0.9rem;
-                opacity: 0.95;
-                line-height: 1.4;
-                margin: 0;
-                font-weight: 500;
-                font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-            }
-            
-            @keyframes slide {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(calc(-280px * 12 - 25px * 12));
-                }
-            }
-            
-            /* Gradient overlays for visual effect */
-            .branding-slideshow:before,
-            .branding-slideshow:after {
-                content: '';
-                position: absolute;
-                top: 0;
-                width: 150px;
-                height: 100%;
-                z-index: 2;
-                pointer-events: none;
-            }
-            
-            .branding-slideshow:before {
-                left: 0;
-                background: linear-gradient(to right, rgba(102,126,234,1), rgba(102,126,234,0));
-            }
-            
-            .branding-slideshow:after {
-                right: 0;
-                background: linear-gradient(to left, rgba(102,126,234,1), rgba(102,126,234,0));
-            }
-            
-            /* Pause animation on hover */
-            .branding-slideshow:hover .image-track {
-                animation-play-state: paused;
-            }
-            
-            /* Media queries for responsive design */
-            @media (max-width: 1024px) {
-                .image-card {
-                    width: 240px;
-                    height: 180px;
-                }
-                
-                @keyframes slide {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(calc(-240px * 12 - 25px * 12)); }
-                }
-            }
-            
-            @media (max-width: 768px) {
-                .image-track {
-                    gap: 20px;
-                }
-                
-                .image-card {
-                    width: 200px;
-                    height: 150px;
-                }
-                
-                .branding-slideshow h2 {
-                    font-size: 2.2rem;
-                }
-                
-                .image-overlay {
-                    padding: 20px 15px 15px;
-                }
-                
-                .image-overlay h3 {
-                    font-size: 1.1rem;
-                }
-                
-                .image-overlay p {
-                    font-size: 0.8rem;
-                }
-                
-                @keyframes slide {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(calc(-200px * 12 - 20px * 12)); }
-                }
-            }
-            
-            @media (max-width: 576px) {
-                .branding-slideshow {
-                    padding: 60px 0;
-                }
-                
-                .image-track {
-                    gap: 15px;
-                }
-                
-                .image-card {
-                    width: 160px;
-                    height: 120px;
-                }
-                
-                .branding-slideshow h2 {
-                    font-size: 1.8rem;
-                    margin-bottom: 30px;
-                }
-                
-                .image-overlay {
-                    padding: 15px 10px 10px;
-                }
-                
-                .image-overlay h3 {
-                    font-size: 1rem;
-                }
-                
-                .image-overlay p {
-                    font-size: 0.75rem;
-                }
-                
-                @keyframes slide {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(calc(-160px * 12 - 15px * 12)); }
-                }
-                
-                .branding-slideshow:before,
-                .branding-slideshow:after {
-                    width: 80px;
-                }
-            }
-        </style>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta" id="contact">
-        <div class="container">
-            <h2>Ready to Create Magic?</h2>
-            <p>Let's collaborate to design an unforgettable event experience that will leave your guests talking for years to come.</p>
-            <a href="contactus.html" class="btn">Start Planning Today</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <!-- Company Info Section -->
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
-                        <div class="logo-text">Istazz Media</div>
-                    </div>
-                    <p class="footer-description"> A uniquely structured media agency with an eye 
-                            f or excellence in branding, event management 
-                            and production solutions, all with  an urge to 
-                            exceed customer expectations.
-                            We are founded on a philosophy of  'Creative 
-                            Simplicity' where we seek to always use new and 
-                            i nnovative techniques and solutions to meet the 
-                            needs of our clients.
-                            Creativity is in our DNA.</p>
-                                                
-                  
-                    <div class="social-links">
-                        <h4>Follow Us</h4>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com/share/1DEnuTKxai/" class="social-link" aria-label="Facebook">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                            <a href="https://www.instagram.com/istazzmedia?igsh=MXVqbW9ydjk2M2hkYQ==" class="social-link" aria-label="Instagram">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Twitter">
-                                <i class="bi bi-twitter"></i>
-                            </a>
-                            <a href="https://youtube.com/@istazzmedia-gig?si=HsHSVKgYco8G-lao" class="social-link" aria-label="YouTube">
-                                <i class="bi bi-youtube"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="LinkedIn">
-                                <i class="bi bi-linkedin"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Pinterest">
-                                <i class="bi bi-pinterest"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Services Section -->
-               <!-- Quick Links Section -->
-               <div class="footer-section">
-                  <h3>Quick Links</h3>
-                  <ul class="footer-links">
-                    <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-                    <li><a href="aboutus.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
-                    <li><a href="services.html"><i class="bi bi-chevron-right"></i> Services</a></li>
-                    <li><a href="ourwork.html"><i class="bi bi-chevron-right"></i> Our Work</a></li>
-                    <li><a href="ourclients.html"><i class="bi bi-chevron-right"></i> Our Clients</a></li>
-                    <li><a href="eventbranding.html"><i class="bi bi-chevron-right"></i> Event Branding</a></li>
-                    <li><a href="prandmedialrelations.html"><i class="bi bi-chevron-right"></i> PR & Media Relations</a></li>
-                    <li><a href="consultation.html"><i class="bi bi-chevron-right"></i> Consultation</a></li>
-                    <li><a href="design.html"><i class="bi bi-chevron-right"></i> Design</a></li>
-                    <li><a href="contactus.html"><i class="bi bi-chevron-right"></i> Contact Us</a></li>
-                  </ul>
-                </div>
-
-
-                <!-- Quick Links Section -->
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Services</a></li>
-                        <li><a href="ourwork.html"><i class="bi bi-chevron-right"></i> Portfolio</a></li>
-                        <li><a href="ourclients.html"><i class="bi bi-chevron-right"></i> Our Clients</a></li>
-                        <li><a href="aboutus.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
-                        <li><a href="contactus.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Blog</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Testimonials</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact & Support Section -->
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links contact-info">
-                        <li>
-                            <a href="#">
-                                <i class="bi bi-geo-alt"></i>
-                                <span>Nairobi, Kenya<br><small>Mbuni drive,off new garden estate road</small></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tel:+254712345678">
-                                <i class="bi bi-telephone"></i>
-                                <span>+254 725 116 708<br><small>24/7</small></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tel:+254734567890">
-                                <i class="bi bi-phone"></i>
-                                <span>+254 725 116 708<br><small>Emergency Support</small></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Footer Bottom Section -->
-            <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <div class="copyright">
-                        <p>&copy; 2026 Istazz Media. All rights reserved.</p>
-                    </div>
-                </div>
-                
-                <div class="footer-credits">
-                    <p>Designed with <i class="bi bi-heart-fill" style="color: var(--primary);"></i> by Istazz Media Team</p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <script>
         // Mobile menu toggle functionality
@@ -2294,18 +1558,655 @@
                 });
             });
         }
-        
-        // Duplicate technique items for seamless scrolling
-        document.addEventListener('DOMContentLoaded', function() {
-            const track = document.querySelector('.techniques-track');
-            if (track) {
-                const items = document.querySelectorAll('.technique-item');
+    </script>
+</section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="staircase-text">
+                <div class="text-line">ISTAZZ PR & MEDIA</div>
+                <div class="text-line">BUILDING BRANDS</div>
+                <div class="text-line">SHAPING STORIES</div>
+            </div>
+            <p class="hero-description">Strategic PR and media relations services that amplify your brand's voice, build credibility, and connect you with your target audience through strategic PR and media relations.</p>
+            <a href="#services" class="hero-btn">Explore Our Services</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our PR & Media Services</h2>
+            <div class="services-grid">
+                <!-- Media Relations -->
+                <div class="service-card">
+                    <div class="service-image">Media Relations</div>
+                    <div class="service-content">
+                        <h3>Media Relations</h3>
+                        <p>Building and maintaining strong relationships with journalists, editors, and influencers to secure positive media coverage.</p>
+                        <ul class="service-features">
+                            <li>Press Release Writing & Distribution</li>
+                            <li>Media List Development</li>
+                            <li>Press Conference Management</li>
+                            <li>Media Monitoring & Analysis</li>
+                        </ul>
+                        <a href="contactus.html" class="btn service-btn">Get Started</a>
+                    </div>
+                </div>
                 
-                // Clone all items and append to track
-                items.forEach(item => {
-                    const clone = item.cloneNode(true);
-                    track.appendChild(clone);
+                <!-- Crisis Communication -->
+                <div class="service-card">
+                    <div class="service-image">Crisis Communication</div>
+                    <div class="service-content">
+                        <h3>Crisis Communication</h3>
+                        <p>Strategic communication plans to protect your reputation during challenging times and manage public perception.</p>
+                        <ul class="service-features">
+                            <li>Crisis Communication Planning</li>
+                            <li>24/7 Crisis Response</li>
+                            <li>Media Training for Spokespersons</li>
+                            <li>Reputation Management</li>
+                        </ul>
+                        <a href="contactus.html" class="btn service-btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Content Development -->
+                <div class="service-card">
+                    <div class="service-image">Content Development</div>
+                    <div class="service-content">
+                        <h3>Content Development</h3>
+                        <p>Creating compelling content that tells your brand story and engages your target audience across multiple platforms.</p>
+                        <ul class="service-features">
+                            <li>Thought Leadership Articles</li>
+                            <li>Case Studies & White Papers</li>
+                            <li>Blog Content & Editorial Calendars</li>
+                            <li>Social Media Content Strategy</li>
+                        </ul>
+                        <a href="contactus.html" class="btn service-btn">View Samples</a>
+                    </div>
+                </div>
+                
+                <!-- Digital PR -->
+                <div class="service-card">
+                    <div class="service-image">Digital PR</div>
+                    <div class="service-content">
+                        <h3>Digital PR</h3>
+                        <p>Leveraging online platforms to enhance your brand's visibility, authority, and search engine rankings.</p>
+                        <ul class="service-features">
+                            <li>Online Reputation Management</li>
+                            <li>Influencer Partnerships</li>
+                            <li>Digital Media Outreach</li>
+                            <li>SEO-Optimized Content</li>
+                        </ul>
+                        <a href="contactus.html" class="btn service-btn">Explore Options</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="slideshow-section">
+    <div class="container">
+        <h2>Our Work in Action</h2>
+        <div class="slideshow-wrapper">
+            <div class="slideshow-container">
+                <div class="slideshow-track" id="slideshow">
+                    <div class="slide-item">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588498/Media_Interviews_Press_Conferences_fwdlgt.jpg" alt="Media Interview">
+                        </div>
+                        <div class="slide-content">
+                            <h3>Media Interviews & Press Conferences</h3>
+                            <p>Securing high-profile media opportunities for our clients</p>
+                        </div>
+                    </div>
+                    <div class="slide-item">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588497/Brand_Launch_Events_shot3r.png" alt="Brand Launch">
+                        </div>
+                        <div class="slide-content">
+                            <h3>Brand Launch Events</h3>
+                            <p>Creating buzz and media coverage for new product launches</p>
+                        </div>
+                    </div>
+                    <div class="slide-item">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588524/crisis-communications-change-management-strategy_whbyml.jpg" alt="Crisis Management">
+                        </div>
+                        <div class="slide-content">
+                            <h3>Crisis Communication Management</h3>
+                            <p>Protecting brand reputation during challenging situations</p>
+                        </div>
+                    </div>
+                    <div class="slide-item">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588710/media-training-main-image_otcq75.jpg" alt="Media Training">
+                        </div>
+                        <div class="slide-content">
+                            <h3>Media Training Sessions</h3>
+                            <p>Preparing executives for successful media interactions</p>
+                        </div>
+                    </div>
+                    <div class="slide-item">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588830/Strategic_PR_Campaigns_gwo2qb.jpg" alt="PR Strategy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>Strategic PR Campaigns</h3>
+                            <p>Developing comprehensive PR strategies for brand growth</p>
+                        </div>
+                    </div>
+                    <div class="slide-item">
+                        <div class="image-container">
+                            <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762588495/Digital_PR_Social_Media_egri0j.jpg" alt="Digital PR">
+                        </div>
+                        <div class="slide-content">
+                            <h3>Digital PR & Social Media</h3>
+                            <p>Amplifying brand presence across digital platforms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slideshow-controls">
+                <button id="prevBtn" class="control-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button id="nextBtn" class="control-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="slideshow-indicators" id="indicators">
+                <!-- Indicators will be added by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .slideshow-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .slideshow-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .slideshow-section h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .slideshow-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .slideshow-container {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+        
+        .slideshow-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .slide-item {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            gap: 40px;
+        }
+        
+        .image-container {
+            flex: 0 0 45%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+        
+        .slide-content {
+            flex: 1;
+        }
+        
+        .slide-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .slide-content p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+        
+        .slideshow-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+            z-index: 10;
+        }
+        
+        .control-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #2c3e50;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .control-btn:hover {
+            background: white;
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .slideshow-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 12px;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #bdc3c7;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background: #3498db;
+            transform: scale(1.2);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .slideshow-section h2 {
+                font-size: 2rem;
+            }
+            
+            .slide-item {
+                flex-direction: column;
+                padding: 30px;
+                gap: 25px;
+            }
+            
+            .image-container {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+            
+            .image-container img {
+                height: 250px;
+            }
+            
+            .slide-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .control-btn {
+                width: 45px;
+                height: 45px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .slideshow-section {
+                padding: 60px 0;
+            }
+            
+            .slideshow-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .slide-item {
+                padding: 20px;
+            }
+            
+            .image-container img {
+                height: 200px;
+            }
+            
+            .slide-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .slide-content p {
+                font-size: 1rem;
+            }
+            
+            .control-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slideshow = document.getElementById('slideshow');
+            const slides = document.querySelectorAll('.slide-item');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicatorsContainer = document.getElementById('indicators');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            const AUTO_SLIDE_INTERVAL = 6000; // 6 seconds
+            
+            // Create indicators
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('div');
+                indicator.classList.add('indicator');
+                if (i === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', () => goToSlide(i));
+                indicatorsContainer.appendChild(indicator);
+            }
+            
+            const indicators = document.querySelectorAll('.indicator');
+            
+            // Function to update slideshow
+            function updateSlideshow() {
+                slideshow.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update active states
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentSlide);
                 });
+            }
+            
+            // Next slide function
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlideshow();
+            }
+            
+            // Previous slide function
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlideshow();
+            }
+            
+            // Go to specific slide
+            function goToSlide(index) {
+                currentSlide = index;
+                updateSlideshow();
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Auto-advance slides every 6 seconds
+            let slideInterval = setInterval(nextSlide, AUTO_SLIDE_INTERVAL);
+            
+            // Pause auto-advance on hover
+            slideshow.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            slideshow.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, AUTO_SLIDE_INTERVAL);
+            });
+            
+            // Initialize slideshow
+            updateSlideshow();
+        });
+    </script>
+</section>
+<script>
+    const AUTO_SLIDE_INTERVAL = 6000; // 6 seconds
+</script>
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Amplify Your Brand?</h2>
+            <p>Let's work together to build your media presence, shape compelling stories, and connect with your target audience through strategic PR and media relations.</p>
+            <a href="contactus.html" class="btn">Start Your PR Campaign</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Company Info Section -->
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
+                        <div class="logo-text">Istazz Media</div>
+                    </div>
+                    <p class="footer-description"> A uniquely structured media agency with an eye 
+                            f or excellence in branding, event management 
+                            and production solutions, all with  an urge to 
+                            exceed customer expectations.
+                            We are founded on a philosophy of  'Creative 
+                            Simplicity' where we seek to always use new and 
+                            i nnovative techniques and solutions to meet the 
+                            needs of our clients.
+                            Creativity is in our DNA.</p>
+                                                
+                  
+                    <div class="social-links">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/share/1DEnuTKxai/" class="social-link" aria-label="Facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="https://www.instagram.com/istazzmedia?igsh=MXVqbW9ydjk2M2hkYQ==" class="social-link" aria-label="Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com/@istazzmedia-gig?si=HsHSVKgYco8G-lao" class="social-link" aria-label="YouTube">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Pinterest">
+                                <i class="bi bi-pinterest"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Section -->
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Brand Photography</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Corporate Events</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Product Photography</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Video Production</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Drone Photography</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Photo Editing</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Media Training</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Social Media Content</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Services</a></li>
+                        <li><a href="ourwork.html"><i class="bi bi-chevron-right"></i> Portfolio</a></li>
+                        <li><a href="ourclients.html"><i class="bi bi-chevron-right"></i> Our Clients</a></li>
+                        <li><a href="aboutus.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
+                        <li><a href="contactus.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Blog</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Support Section -->
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links contact-info">
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>Nairobi, Kenya<br><small>Mbuni drive,off new garden estate road</small></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+254712345678">
+                                <i class="bi bi-telephone"></i>
+                                <span>+254 725 116 708<br><small>24/7</small></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+254734567890">
+                                <i class="bi bi-phone"></i>
+                                <span>+254 725 116 708<br><small>Emergency Support</small></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom Section -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Istazz Media. All rights reserved.</p>
+                    </div>
+                  
+                </div>
+                
+                <div class="footer-credits">
+                    <p>Designed with <i class="bi bi-heart-fill" style="color: var(--primary);"></i> by Istazz Media Team</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Newsletter form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                const newsletterInput = newsletterForm.querySelector('input');
+                const newsletterBtn = newsletterForm.querySelector('.newsletter-btn');
+                
+                newsletterBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const email = newsletterInput.value.trim();
+                    
+                    if (!email) {
+                        showNewsletterMessage('Please enter your email address', 'error');
+                        return;
+                    }
+                    
+                    if (!isValidEmail(email)) {
+                        showNewsletterMessage('Please enter a valid email address', 'error');
+                        return;
+                    }
+                    
+                    // Simulate subscription success
+                    showNewsletterMessage('Thank you for subscribing to our newsletter!', 'success');
+                    newsletterInput.value = '';
+                });
+                
+                // Also handle Enter key in the input field
+                newsletterInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        newsletterBtn.click();
+                    }
+                });
+                
+                function isValidEmail(email) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return emailRegex.test(email);
+                }
+                
+                function showNewsletterMessage(message, type) {
+                    // Create toast notification
+                    const toast = document.createElement('div');
+                    toast.className = `toast ${type}`;
+                    toast.innerHTML = `
+                        <div class="toast-icon">
+                            <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                        </div>
+                        <div class="toast-message">${message}</div>
+                    `;
+                    
+                    document.body.appendChild(toast);
+                    
+                    // Trigger animation
+                    setTimeout(() => {
+                        toast.classList.add('visible');
+                    }, 10);
+                    
+                    // Remove after delay
+                    setTimeout(() => {
+                        toast.classList.remove('visible');
+                        setTimeout(() => {
+                            if (document.body.contains(toast)) {
+                                document.body.removeChild(toast);
+                            }
+                        }, 300);
+                    }, 3000);
+                }
             }
         });
     </script>
