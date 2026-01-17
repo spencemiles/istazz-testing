@@ -1,570 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Istazz Media | Pinterest Gallery</title>
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Istazz services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+    }
 
-        body {
-            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
-            background-color: #fff;
-            color: #111;
-            line-height: 1.3;
-        }
+    body {
+      background: #f5f7fa;
+      color: #111;
+      overflow-x: hidden;
+    }
 
-        /* Pinterest Header */
-        .pinterest-header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 80px;
-            background: #fff;
-            z-index: 1000;
-            padding: 0 20px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-        }
+    /* ===== HERO SECTION ===== */
+  /* ===== HERO SECTION ===== */
+.hero {
+  text-align: center;
+  padding: clamp(4rem, 8vw, 10rem) 1rem clamp(3rem, 6vw, 7rem);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85)), 
+              url('https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80') center/cover no-repeat;
+  color: #333;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-        .header-left {
-            flex: 0 0 auto;
-            margin-right: 20px;
-        }
+/* Container for hero content */
+.hero-content {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 clamp(1rem, 5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
 
-        .pinterest-logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
+/* Ensure direct children of hero are properly contained */
+.hero > * {
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: #e60023;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            font-weight: 700;
-        }
+/* For mobile-specific adjustments */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90vh;
+    padding: clamp(3rem, 6vw, 6rem) 1rem clamp(2rem, 4vw, 4rem);
+  }
+  
+  .hero-content {
+    padding: 0 1.5rem;
+  }
+}
 
-        .logo-text {
-            font-size: 24px;
-            font-weight: 700;
-            color: #e60023;
-            margin-left: 8px;
-        }
+/* For very small screens */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 85vh;
+    padding: clamp(2rem, 5vw, 4rem) 0.75rem clamp(1.5rem, 3vw, 3rem);
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
+  }
+}
 
-        .header-center {
-            flex: 1;
-            max-width: 800px;
-            position: relative;
-        }
+/* For large screens */
+@media (min-width: 1440px) {
+  .hero {
+    padding: 12rem 2rem 8rem;
+  }
+}
 
-        .search-wrapper {
-            width: 100%;
-            background: #efefef;
-            border-radius: 24px;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            height: 48px;
-        }
+    .hero-logo {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 1.5s ease;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      padding: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      filter: drop-shadow(0 5px 15px rgba(27, 77, 228, 0.2));
+    }
 
-        .search-icon {
-            color: #767676;
-            margin-right: 12px;
-            font-size: 20px;
-        }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      animation: fadeInDown 2s ease;
+      color: #1b4de4;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
 
-        .search-input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            font-weight: 400;
-        }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+      opacity: 0.8;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      animation: fadeIn 2.5s ease;
+      color: #555;
+    }
 
-        .search-input::placeholder {
-            color: #767676;
-        }
+    .tagline {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin: 2.5rem 0 3rem;
+      font-weight: 600;
+      font-size: 1.3rem;
+      gap: 1.5rem;
+    }
 
-        .header-right {
-            flex: 0 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-left: 20px;
-        }
+    .tagline span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 1s ease forwards;
+      padding: 10px 22px;
+      background: linear-gradient(135deg, #1b4de4, #ff3366);
+      border-radius: 50px;
+      color: white;
+      box-shadow: 0 5px 15px rgba(27, 77, 228, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
 
-        .nav-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: #767676;
-            font-size: 24px;
-            transition: background-color 0.2s;
-        }
+    .tagline span::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: all 0.6s;
+    }
 
-        .nav-icon:hover {
-            background-color: #efefef;
-        }
+    .tagline span:hover::before {
+      left: 100%;
+    }
 
-        .nav-icon.active {
-            color: #111;
-        }
+    .tagline span:nth-child(1) { animation-delay: 0.3s; }
+    .tagline span:nth-child(2) { animation-delay: 0.6s; }
+    .tagline span:nth-child(3) { animation-delay: 0.9s; }
 
-        .user-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: #efefef;
-            overflow: hidden;
-        }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .user-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        /* Main Content */
-        .main-content {
-            margin-top: 80px;
-            padding: 20px;
-            min-height: calc(100vh - 80px);
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-        /* Pinterest Grid */
-        .pinterest-grid {
-            columns: 6 240px;
-            column-gap: 16px;
-            margin: 0 auto;
-            max-width: 1400px;
-        }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #1b4de4;
+      font-size: 1.3rem;
+      animation: bounce 2s infinite;
+    }
 
-        .pin-card {
-            break-inside: avoid;
-            margin-bottom: 16px;
-            border-radius: 16px;
-            background: #fff;
-            cursor: zoom-in;
-            position: relative;
-            transition: transform 0.2s ease;
-            overflow: hidden;
-        }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+      40% { transform: translateY(-10px) translateX(-50%); }
+      60% { transform: translateY(-5px) translateX(-50%); }
+    }
 
-        .pin-card:hover {
-            transform: scale(1.02);
-        }
+    /* ===== SERVICES ===== */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 5rem 2rem;
+      background: #ffffff;
+      text-align: center;
+    }
 
-        .pin-image-wrapper {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            background: #efefef;
-            width: 100%;
-            height: 100%;
-        }
+    .section-title {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1b4de4;
+      position: relative;
+    }
 
-        .pin-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 16px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 4px;
+      background: linear-gradient(to right, #1b4de4, #ff3366);
+      border-radius: 2px;
+    }
 
-        .pin-image.loaded {
-            opacity: 1;
-        }
+    .service-card {
+      background: #fff;
+      padding: 2.5rem 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #333;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+    }
 
-        .pin-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 40%);
-            opacity: 0;
-            transition: opacity 0.2s;
-            border-radius: 16px;
-            pointer-events: none;
-        }
+    .service-card i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #1b4de4;
+      transition: all 0.4s ease;
+    }
 
-        .pin-card:hover .pin-overlay {
-            opacity: 1;
-        }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: linear-gradient(135deg, #1b4de4, #ff3366);
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
 
-        .pin-actions {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            display: flex;
-            gap: 8px;
-            opacity: 0;
-            transition: opacity 0.2s;
-            pointer-events: none;
-        }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(27, 77, 228, 0.15);
+      color: #fff;
+    }
 
-        .pin-card:hover .pin-actions {
-            opacity: 1;
-            pointer-events: all;
-        }
+    .service-card:hover::before {
+      height: 100%;
+    }
 
-        .pin-action-btn {
-            width: 48px;
-            height: 48px;
-            border-radius: 24px;
-            background: rgba(255,255,255,0.9);
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 20px;
-            color: #111;
-            backdrop-filter: blur(10px);
-            transition: background-color 0.2s;
-        }
+    .service-card:hover i {
+      color: white;
+      transform: scale(1.2);
+    }
 
-        .pin-action-btn:hover {
-            background: #fff;
-        }
+    /* ===== SLIDESHOW ===== */
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      background: #f8fafc;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+    }
 
-        .pin-title {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 16px;
-            color: white;
-            font-weight: 600;
-            font-size: 14px;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.2s;
-            pointer-events: none;
-        }
+    .slideshow {
+      overflow: hidden;
+      width: 100%;
+      max-width: 1400px;
+    }
 
-        .pin-card:hover .pin-title {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .slide-track {
+      display: flex;
+      gap: 2rem;
+      animation: scroll 40s linear infinite;
+      padding: 1rem;
+    }
 
-        .pin-title-text {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+    .slide-item {
+      flex: 0 0 auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s ease;
+      position: relative;
+    }
 
-        /* Loading Skeleton */
-        .pin-skeleton {
-            break-inside: avoid;
-            margin-bottom: 16px;
-            border-radius: 16px;
-            background: #efefef;
-            animation: skeleton-loading 1.5s infinite;
-            position: relative;
-            overflow: hidden;
-        }
+    .slide-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    }
 
-        .pin-skeleton::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            animation: shimmer 1.5s infinite;
-        }
+    .slide-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
 
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
+    .slide-item:hover img {
+      transform: scale(1.1);
+    }
 
-        @keyframes skeleton-loading {
-            0% { opacity: 0.6; }
-            50% { opacity: 1; }
-            100% { opacity: 0.6; }
-        }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-320px * 4 - 2rem * 4)); }
+    }
 
-        /* Footer */
-        .pinterest-footer {
-            padding: 20px;
-            text-align: center;
-            color: #767676;
-            font-size: 14px;
-            border-top: 1px solid #efefef;
-            margin-top: 40px;
-        }
+   
 
-        /* Modal - UPDATED for better close button */
-        .pin-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.4);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            padding: 20px;
-        }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 6rem 1rem 3rem;
+        min-height: 80vh;
+      }
 
-        .pin-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
+      .hero h1 {
+        font-size: 2rem;
+      }
 
-        .modal-content {
-            background: #fff;
-            border-radius: 32px;
-            max-width: 1000px;
-            width: 100%;
-            max-height: 90vh;
-            overflow: hidden;
-            position: relative;
-            transform: scale(0.95);
-            transition: transform 0.3s;
-        }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
 
-        .pin-modal.active .modal-content {
-            transform: scale(1);
-        }
+      .tagline {
+        font-size: 1.1rem;
+        gap: 1rem;
+      }
 
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.9);
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 20px;
-            z-index: 1000; /* Increased z-index */
-            transition: background-color 0.2s;
-            pointer-events: auto !important; /* Force clickable */
-        }
+      .hero-logo {
+        width: 120px;
+        height: 120px;
+      }
 
-        .modal-close:hover {
-            background: #fff;
-        }
+      .slideshow-container {
+        height: 55vh;
+      }
 
-        .modal-body {
-            display: flex;
-            height: 70vh;
-        }
+      .slide-item {
+        width: 240px;
+        height: 240px;
+      }
 
-        .modal-image {
-            flex: 1;
-            background: #efefef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-240px * 4 - 2rem * 4)); }
+      }
 
-        .modal-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 16px;
-        }
+      .services {
+        padding: 3rem 1.5rem;
+      }
 
-        .modal-info {
-            flex: 0 0 320px;
-            padding: 32px;
-            overflow-y: auto;
-        }
+      .service-card {
+        padding: 2rem 1rem;
+        font-size: 1rem;
+      }
 
-        .modal-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
+      .section-title {
+        font-size: 1.7rem;
+      }
+    }
 
-        .modal-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 1px solid #efefef;
-        }
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
 
-        .modal-btn {
-            padding: 12px 20px;
-            border-radius: 24px;
-            border: none;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s;
-        }
+      .hero-subtitle {
+        font-size: 0.9rem;
+      }
 
-        .modal-btn.primary {
-            background: #e60023;
-            color: white;
-        }
+      .tagline {
+        font-size: 1rem;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
 
-        .modal-btn.primary:hover {
-            background: #ad081b;
-        }
+      .hero-logo {
+        width: 100px;
+        height: 100px;
+      }
 
-        .modal-btn.secondary {
-            background: #efefef;
-            color: #111;
-        }
+      .slideshow-container {
+        height: 45vh;
+      }
 
-        .modal-btn.secondary:hover {
-            background: #e2e2e2;
-        }
+      .slide-item {
+        width: 200px;
+        height: 200px;
+      }
 
-        /* Scroll to Top */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: #fff;
-            border: 1px solid #efefef;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s;
-            z-index: 100;
-        }
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-200px * 4 - 2rem * 4)); }
+      }
 
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+      .services {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+      }
 
-        .scroll-top:hover {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-
-        /* Toast */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 24px;
-            font-size: 14px;
-            opacity: 0;
-            transition: all 0.3s;
-            z-index: 2000;
-        }
-
-        .toast.visible {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .pinterest-grid {
-                columns: 5 200px;
-            }
-            
-            .modal-body {
-                flex-direction: column;
-                height: auto;
-                max-height: 80vh;
-            }
-            
-            .modal-image {
-                height: 50vh;
-            }
-            
-            .modal-info {
-                flex: none;
-                max-height: 30vh;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .pinterest-grid {
-                columns: 3 180px;
-            }
-            
-            .header-center {
-                display: none;
-            }
-            
-            .modal-content {
-                border-radius: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .pinterest-grid {
-                columns: 2 160px;
-            }
-            
-            .pinterest-header {
-                padding: 0 12px;
-            }
-            
-            .header-left .logo-text {
-                display: none;
-            }
-        }
-    </style>
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<section id="navigation-section">
+  <section id="navigation-section">
     <!-- Desktop Header -->
     <header id="header">
         <div class="header-container">
@@ -1614,527 +1495,1275 @@
         }
     </script>
 </section>
-    <!-- Main Content -->
-    <main class="main-content">
-        <div id="pinterestGrid" class="pinterest-grid">
-            <!-- Pinterest cards will be dynamically inserted here -->
+
+    <style>
+        /* Base Styles */
+        :root {
+            --hotpink: #FF1493;
+            --white: #FFFFFF;
+            --blue: #1E90FF;
+            --dark-blue: #0A2463;
+            --light-gray: #F5F5F5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Staircase Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: 
+                /* Dark gradient overlay for better text visibility */
+                linear-gradient(135deg, 
+                    rgba(10, 10, 10, 0.85) 0%, 
+                    rgba(26, 26, 46, 0.8) 50%, 
+                    rgba(22, 33, 62, 0.85) 100%),
+                /* Brand gradient overlay */
+                linear-gradient(135deg, 
+                    rgba(255, 20, 147, 0.2) 0%, 
+                    rgba(30, 144, 255, 0.15) 100%),
+                /* Background image - Production warehouse */
+                url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 0 20px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .staircase-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .text-line {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FF1493 0%, #1E90FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            position: relative;
+            width: fit-content;
+        }
+
+        /* Staircase positioning */
+        .text-line:nth-child(1) {
+            animation-delay: 0.2s;
+            /* ISTAZZ PRODUCTION - centered */
+            margin-left: 0;
+        }
+
+        .text-line:nth-child(2) {
+            animation-delay: 0.4s;
+            /* CREATE ANYTHING - starts under "PRODUCTION" and extends to the right */
+            margin-left: 80px;
+        }
+
+        .text-line:nth-child(3) {
+            animation-delay: 0.6s;
+            /* TELL YOUR STORY - starts under "ANYTHING" and extends to the right */
+            margin-left: 160px;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: linear-gradient(135deg, #FF1493 0%, #1E90FF 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 20, 147, 0.4);
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 20, 147, 0.6);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .text-line {
+                font-size: 2.2rem;
+                letter-spacing: 1.5px;
+            }
+            
+            .text-line:nth-child(2) {
+                margin-left: 50px;
+            }
+
+            .text-line:nth-child(3) {
+                margin-left: 100px;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+                max-width: 400px;
+            }
+            
+            .hero-btn {
+                padding: 12px 30px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text-line {
+                font-size: 1.8rem;
+            }
+            
+            .text-line:nth-child(2) {
+                margin-left: 30px;
+            }
+
+            .text-line:nth-child(3) {
+                margin-left: 60px;
+            }
+            
+            .hero-description {
+                font-size: 0.95rem;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+   <section class="hero">
+  <div class="hero-content">
+    <div class="staircase-text">
+      <div class="text-line">Istazz Media</div>
+      <div class="text-line">Brand,Create</div>
+      <div class="text-line">Your World</div>
+    </div>
+    <p class="hero-description">
+      At Istazz Media, we empower brands and organizations through powerful 
+      storytelling, innovative branding, event experiences, professional 
+      production, and strategic PR & media consultancy.
+    </p>
+    
+  </div>
+</section>
+
+</body>
+</html>
+ 
+
+
+<!-- SERVICES -->
+<section class="our-services-section">
+  <h2 class="our-section-heading">Our Services</h2>
+  
+  <div class="services-wrapper">
+    <a href="design.html" class="service-item">
+      <div class="service-img-container">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1768501052/IMG-20250212-WA0231_tfg85a.jpg" alt="Branding service">
+      </div>
+      <div class="service-details">
+        <div class="service-symbol">
+          <i class="fas fa-palette"></i>
         </div>
-    </main>
+        <h3 class="service-name">Branding</h3>
+        <p class="service-text">Creating memorable brand identities that communicate your values and vision.</p>
+      </div>
+    </a>
 
-    <!-- Footer -->
-    <footer class="pinterest-footer">
-        <p>© 2026 Istazz Media | Pinterest-style Gallery</p>
-    </footer>
+    <a href="prandmediarelations.html" class="service-item">
+      <div class="service-img-container">
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="PR & Media Relations">
+      </div>
+      <div class="service-details">
+        <div class="service-symbol">
+          <i class="fas fa-building"></i>
+        </div>
+        <h3 class="service-name">PR & Media Relations</h3>
+        <p class="service-text">Strategic communication to build and maintain your public image and media presence.</p>
+      </div>
+    </a>
 
-    <!-- Pin Modal -->
-    <div class="pin-modal" id="pinModal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose">
-                <i class="bi-x-lg"></i>
-            </button>
-            <div class="modal-body">
-                <div class="modal-image" id="modalImage">
-                    <!-- Image will be inserted here -->
-                </div>
-                <div class="modal-info">
-                    <h1 class="modal-title" id="modalTitle">Image Title</h1>
-                    <div class="modal-actions">
-                        <button class="modal-btn primary" id="downloadBtn">
-                            <i class="bi-download"></i>
-                            Download
-                        </button>
-                        <button class="modal-btn secondary" id="shareBtn">
-                            <i class="bi-share"></i>
-                            Share
-                        </button>
+    <a href="eventbranding.html" class="service-item">
+      <div class="service-img-container">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1768569324/IMG-20250212-WA0210_k4csq7.jpg" alt="Event Branding">
+      </div>
+      <div class="service-details">
+        <div class="service-symbol">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <h3 class="service-name">Event Branding</h3>
+        <p class="service-text">Comprehensive branding solutions for corporate events and special occasions.</p>
+      </div>
+    </a>
+
+    <a href="consultation.html" class="service-item">
+      <div class="service-img-container">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Consultation">
+      </div>
+      <div class="service-details">
+        <div class="service-symbol">
+          <i class="fas fa-sign"></i>
+        </div>
+        <h3 class="service-name">Consultation</h3>
+        <p class="service-text">Expert advice and strategic planning to elevate your brand and marketing efforts.</p>
+      </div>
+    </a>
+  </div>
+
+  <style>
+    /* OUR SERVICES SECTION STYLES */
+    .our-services-section {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      width: 100%;
+      text-align: center;
+    }
+    
+    .our-section-heading {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 60px;
+      color: #2c3e50;
+      position: relative;
+      padding-bottom: 20px;
+      display: inline-block;
+    }
+    
+    .our-section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(80px, 15vw);
+      height: 4px;
+      background: linear-gradient(90deg, #3498db, #2ecc71);
+      border-radius: 2px;
+    }
+    
+    .services-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 0;
+    }
+    
+    .service-item {
+      display: inline-block;
+      vertical-align: top;
+      width: 23%;
+      margin: 0 1%;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #333;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+      font-size: 1rem;
+    }
+    
+    .service-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .service-img-container {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .service-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .service-item:hover .service-img-container img {
+      transform: scale(1.05);
+    }
+    
+    .service-details {
+      padding: 25px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .service-symbol {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #3498db, #2ecc71);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -45px;
+      margin-bottom: 20px;
+      color: white;
+      font-size: 28px;
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .service-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #2c3e50;
+    }
+    
+    .service-text {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    
+    /* Tablet (2 items per row) */
+    @media (max-width: 1024px) {
+      .service-item {
+        width: 48%;
+        margin: 1%;
+      }
+      
+      .service-item:nth-child(n+3) {
+        margin-top: 20px;
+      }
+    }
+    
+    /* Mobile (1 item per row) */
+    @media (max-width: 768px) {
+      .our-services-section {
+        padding: 60px 15px;
+      }
+      
+      .our-section-heading {
+        margin-bottom: 40px;
+      }
+      
+      .service-item {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 25px;
+        display: block;
+      }
+      
+      .service-item:last-child {
+        margin-bottom: 0;
+      }
+      
+      .service-img-container {
+        height: 180px;
+      }
+      
+      .service-details {
+        padding: 20px;
+      }
+    }
+    
+    /* Small Mobile */
+    @media (max-width: 480px) {
+      .our-services-section {
+        padding: 40px 10px;
+      }
+      
+      .our-section-heading {
+        margin-bottom: 30px;
+        font-size: 1.8rem;
+      }
+      
+      .service-img-container {
+        height: 160px;
+      }
+      
+      .service-symbol {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin-top: -40px;
+      }
+      
+      .service-name {
+        font-size: 1.2rem;
+      }
+      
+      .service-text {
+        font-size: 0.9rem;
+      }
+    }
+    
+    /* For very large screens */
+    @media (min-width: 1440px) {
+      .services-wrapper {
+        max-width: 1400px;
+      }
+      
+      .service-item {
+        width: 22%;
+        margin: 0 1.5%;
+      }
+    }
+    
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      .our-services-section {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      }
+      
+      .our-section-heading {
+        color: #ecf0f1;
+      }
+      
+      .service-item {
+        background: #2c3e50;
+        color: #ecf0f1;
+      }
+      
+      .service-name {
+        color: #ecf0f1;
+      }
+      
+      .service-text {
+        color: #bdc3c7;
+      }
+    }
+  </style>
+</section>
+
+
+ <section class="branding-slideshow">
+    <h2>Our Branding Techniques</h2>
+    <div class="image-track">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582800/Large_Format_Printing_dw2svv.webp" alt="Large Format Printing">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582797/Digital_Branding_pytmsf.png" alt="Digital Branding">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582817/Offset_Printing_npanov.jpg" alt="Offset Printing">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582813/UV_Printing_z01ocw.webp" alt="UV Printing">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582800/laser-cutting_nj0mr7.webp" alt="Laser Cutting">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582797/CNC_Machining_uo87za.jpg" alt="CNC Machining">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582798/Embroidery_sm1ugk.webp" alt="Embroidery">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582798/Embossing_tofiw2.webp" alt="Embossing">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582799/Engraving_zknw2k.jpg" alt="Engraving">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582801/Screen_Print_isesz6.webp" alt="Screen Print">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582813/Vinyl_Cut_mr9esj.jpg" alt="Vinyl Cut">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582798/Heat_Press_k7osrm.webp" alt="Heat Press">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582798/images_cus1kw.jpg" alt="Painting">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582801/signaturing_mac50l.webp" alt="Signaturing">
+        <!-- Duplicate images for seamless loop -->
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582800/Large_Format_Printing_dw2svv.webp" alt="Large Format Printing">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582797/Digital_Branding_pytmsf.png" alt="Digital Branding">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582817/Offset_Printing_npanov.jpg" alt="Offset Printing">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582813/UV_Printing_z01ocw.webp" alt="UV Printing">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582800/laser-cutting_nj0mr7.webp" alt="Laser Cutting">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582797/CNC_Machining_uo87za.jpg" alt="CNC Machining">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582798/Embroidery_sm1ugk.webp" alt="Embroidery">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582798/Embossing_tofiw2.webp" alt="Embossing">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582799/Engraving_zknw2k.jpg" alt="Engraving">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582801/Screen_Print_isesz6.webp" alt="Screen Print">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582813/Vinyl_Cut_mr9esj.jpg" alt="Vinyl Cut">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582798/Heat_Press_k7osrm.webp" alt="Heat Press">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582798/images_cus1kw.jpg" alt="Painting">
+        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1762582801/signaturing_mac50l.webp" alt="Signaturing">
+    </div>
+    
+    <style>
+        .branding-slideshow {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            border-radius: 2px;
+        }
+        
+        .image-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            animation: slide 40s linear infinite;
+        }
+        
+        .image-track img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-track img:hover {
+            transform: scale(1.05);
+        }
+        
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        /* Gradient overlays for visual effect */
+        .branding-slideshow:before,
+        .branding-slideshow:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .branding-slideshow:before {
+            left: 0;
+            background: linear-gradient(to right, rgba(245,247,250,1), rgba(245,247,250,0));
+        }
+        
+        .branding-slideshow:after {
+            right: 0;
+            background: linear-gradient(to left, rgba(245,247,250,1), rgba(245,247,250,0));
+        }
+        
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .image-track img {
+                width: 160px;
+                height: 120px;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .image-track img {
+                width: 140px;
+                height: 100px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .branding-slideshow {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</section>
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --dark: #1a1a2e;
+            --dark-light: #16213e;
+            --primary: #ff3366;
+            --primary-dark: #e62958;
+            --secondary: #0f3460;
+            --accent: #00b4d8;
+            --text-white: #ffffff;
+            --text-white-light: rgba(255, 255, 255, 0.8);
+            --transition: all 0.3s ease;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            color: var(--text-white);
+            padding: 60px 0 0;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            margin: 20px 0 15px;
+            color: var(--text-white-light);
+            font-weight: 600;
+        }
+
+        /* Logo Section */
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-right: 12px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-logo .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .footer-description {
+            color: var(--text-white-light);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            margin-bottom: 25px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .newsletter-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Social Links */
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+        }
+
+        /* Footer Links */
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-white-light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a i {
+            margin-top: 3px;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        /* Contact Info */
+        .contact-info li a {
+            align-items: flex-start;
+        }
+
+        .contact-info span small {
+            display: block;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 2px;
+        }
+
+        /* Business Hours */
+        .business-hours {
+            margin-top: 25px;
+        }
+
+        .hours-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-white-light);
+        }
+
+        .hours-list li span:first-child {
+            font-weight: 500;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .copyright p {
+            color: var(--text-white-light);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .legal-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            padding: 0;
+        }
+
+        .legal-links a {
+            color: var(--text-white-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .legal-links a:hover {
+            color: white;
+        }
+
+        .payment-methods {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-white-light);
+            font-size: 0.9rem;
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .payment-icons i {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .payment-icons i:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .footer-credits {
+            text-align: center;
+            color: var(--text-white-light);
+            font-size: 0.85rem;
+        }
+
+        .footer-credits i {
+            margin: 0 5px;
+        }
+
+        /* Toast Notifications */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: #333;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+        }
+
+        .toast.visible {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            border-left: 4px solid #28a745;
+        }
+
+        .toast.error {
+            border-left: 4px solid #dc3545;
+        }
+
+        .toast-icon {
+            font-size: 1.2rem;
+        }
+
+        .toast.success .toast-icon {
+            color: #28a745;
+        }
+
+        .toast.error .toast-icon {
+            color: #dc3545;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 40px 0 0;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .legal-links {
+                justify-content: center;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 5px;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-section h3 {
+                font-size: 1.2rem;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .legal-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .payment-methods {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Company Info Section -->
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
+                        <div class="logo-text">Istazz Media</div>
+                    </div>
+                    <p class="footer-description"> A uniquely structured media agency with an eye 
+                            f or excellence in branding, event management 
+                            and production solutions, all with  an urge to 
+                            exceed customer expectations.
+                            We are founded on a philosophy of  ‘Creative 
+                            Simplicity’ where we seek to always use new and 
+                            i nnovative techniques and solutions to meet the 
+                            needs of our clients.
+                            Creativity is in our DNA.</p>
+                                                
+                  
+                    <div class="social-links">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/share/1DEnuTKxai/" class="social-link" aria-label="Facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="https://www.instagram.com/istazzmedia?igsh=MXVqbW9ydjk2M2hkYQ==" class="social-link" aria-label="Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com/@istazzmedia-gig?si=HsHSVKgYco8G-lao" class="social-link" aria-label="YouTube">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Pinterest">
+                                <i class="bi bi-pinterest"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Services Section -->
+      <!-- Quick Links Section -->
+<div class="footer-section">
+  <h3>Quick Links</h3>
+  <ul class="footer-links">
+    <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+    <li><a href="aboutus.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
+    <li><a href="services.html"><i class="bi bi-chevron-right"></i> Services</a></li>
+    <li><a href="ourwork.html"><i class="bi bi-chevron-right"></i> Our Work</a></li>
+    <li><a href="ourclients.html"><i class="bi bi-chevron-right"></i> Our Clients</a></li>
+    <li><a href="eventbranding.html"><i class="bi bi-chevron-right"></i> Event Branding</a></li>
+    <li><a href="prandmedialrelations.html"><i class="bi bi-chevron-right"></i> PR & Media Relations</a></li>
+    <li><a href="consultation.html"><i class="bi bi-chevron-right"></i> Consultation</a></li>
+    <li><a href="design.html"><i class="bi bi-chevron-right"></i> Design</a></li>
+    <li><a href="contactus.html"><i class="bi bi-chevron-right"></i> Contact Us</a></li>
+  </ul>
+</div>
+
+
+                <!-- Quick Links Section -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Services</a></li>
+                        <li><a href="ourwork.html"><i class="bi bi-chevron-right"></i> Portfolio</a></li>
+                        <li><a href="ourclients.html"><i class="bi bi-chevron-right"></i> Our Clients</a></li>
+                        <li><a href="aboutus.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
+                        <li><a href="contactus.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Blog</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Support Section -->
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links contact-info">
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>Nairobi, Kenya<br><small>Mbuni drive,off new garden estate road</small></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+254712345678">
+                                <i class="bi bi-telephone"></i>
+                                <span>+254 725 116 708<br><small>24/7</small></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+254734567890">
+                                <i class="bi bi-phone"></i>
+                                <span>+254 725 116 708<br><small>Emergency Support</small></span>
+                            </a>
+                        </li>
+                        <li>
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom Section -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Istazz Media. All rights reserved.</p>
+                    </div>
+                    
+                  
+                 
+                </div>
+                
+                <div class="footer-credits">
+                    <p>Designed with <i class="bi bi-heart-fill" style="color: var(--primary);"></i> by Istazz Media Team</p>
+                </div>
             </div>
         </div>
-    </div>
+    </footer>
 
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top" id="scrollToTop">
-        <i class="bi-chevron-up"></i>
-    </div>
-
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-        <div id="toastMessage"></div>
-    </div>
-
-    <script type="module">
-        // Import Firebase SDKs
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-        // Firebase config
-        const firebaseConfig = {
-          apiKey: "AIzaSyDCdt6FV_zrEyZkJCngtXsmEjht1aahX8k",
-          authDomain: "istazz-media-2a381.firebaseapp.com",
-          projectId: "istazz-media-2a381",
-          storageBucket: "istazz-media-2a381.firebasestorage.app",
-          messagingSenderId: "684862202293",
-          appId: "1:684862202293:web:3f5f513c5c6034119139fc"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // DOM Elements
-        const pinterestGrid = document.getElementById("pinterestGrid");
-        const searchInput = document.getElementById("searchInput");
-        const searchForm = document.getElementById("searchForm");
-        const pinModal = document.getElementById("pinModal");
-        const modalClose = document.getElementById("modalClose");
-        const modalImage = document.getElementById("modalImage");
-        const modalTitle = document.getElementById("modalTitle");
-        const downloadBtn = document.getElementById("downloadBtn");
-        const shareBtn = document.getElementById("shareBtn");
-        const scrollToTop = document.getElementById("scrollToTop");
-        const toast = document.getElementById("toast");
-        const toastMessage = document.getElementById("toastMessage");
-
-        // Global variables
-        let allMedia = [];
-        let filteredMedia = [];
-        let currentMedia = null;
-
-        // Initialize the application
-        function init() {
-          loadMedia();
-          setupEventListeners();
-        }
-
-        // Fetch all media
-        async function loadMedia() {
-          try {
-            showSkeletonLoading();
-            
-            const querySnapshot = await getDocs(collection(db, "mediaLibrary"));
-            
-            if (querySnapshot.empty) {
-              showNoMediaMessage();
-              return;
-            }
-
-            allMedia = [];
-            querySnapshot.forEach((doc) => {
-              const data = doc.data();
-              const id = doc.id;
-              
-              // Only include items that have both image and title
-              if (data.title && (data.thumbnailUrl || data.fileUrl)) {
-                allMedia.push({ 
-                  id, 
-                  title: data.title,
-                  imageUrl: data.thumbnailUrl || data.fileUrl,
-                  description: data.description || "",
-                  date: data.date || ""
-                });
-              }
-            });
-
-            // Shuffle for Pinterest-like random layout
-            allMedia = shuffleArray(allMedia);
-            filteredMedia = [...allMedia];
-            
-            displayMedia();
-            
-            showToast("Loaded " + allMedia.length + " images", "success");
-          } catch (error) {
-            console.error("Error loading media:", error);
-            showErrorMessage("Error loading media. Please check your connection.");
-          }
-        }
-
-        // Shuffle array for Pinterest random layout
-        function shuffleArray(array) {
-          const shuffled = [...array];
-          for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-          }
-          return shuffled;
-        }
-
-        // Display media items in Pinterest grid
-        function displayMedia() {
-          pinterestGrid.innerHTML = "";
-
-          if (filteredMedia.length === 0) {
-            showNoResultsMessage();
-            return;
-          }
-
-          filteredMedia.forEach((item, index) => {
-            const { id, title, imageUrl } = item;
-            const displayTitle = title || "Untitled";
-            
-            // Create pin card
-            const pinCard = document.createElement("div");
-            pinCard.className = "pin-card";
-            pinCard.setAttribute("data-id", id);
-            pinCard.setAttribute("data-index", index);
-
-            // Create image wrapper with fixed aspect ratio based on random size
-            const randomHeight = Math.floor(Math.random() * 300) + 200; // 200-500px height
-            pinCard.style.height = randomHeight + "px";
-
-            pinCard.innerHTML = `
-              <div class="pin-image-wrapper">
-                <img 
-                  class="pin-image" 
-                  src="${imageUrl}" 
-                  alt="${displayTitle}"
-                  loading="lazy"
-                  onload="this.classList.add('loaded'); this.parentElement.style.backgroundColor = 'transparent';"
-                  onerror="handleImageError(this)"
-                >
-                <div class="pin-overlay"></div>
-                <div class="pin-actions">
-                  <button class="pin-action-btn save-btn">
-                    <i class="bi-bookmark"></i>
-                  </button>
-                  <button class="pin-action-btn share-btn">
-                    <i class="bi-share"></i>
-                  </button>
-                </div>
-                <div class="pin-title">
-                  <div class="pin-title-text">${displayTitle}</div>
-                </div>
-              </div>
-            `;
-
-            // Add click event to open modal
-            pinCard.addEventListener('click', (e) => {
-              if (!e.target.closest('.pin-action-btn')) {
-                openModal(item, index);
-              }
-            });
-
-            // Add save button functionality
-            const saveBtn = pinCard.querySelector('.save-btn');
-            saveBtn.addEventListener('click', (e) => {
-              e.stopPropagation();
-              savePin(item);
-            });
-
-            // Add share button functionality
-            const shareBtn = pinCard.querySelector('.share-btn');
-            shareBtn.addEventListener('click', (e) => {
-              e.stopPropagation();
-              sharePin(item);
-            });
-
-            pinterestGrid.appendChild(pinCard);
-          });
-        }
-
-        // Handle image loading errors
-        function handleImageError(img) {
-          img.classList.add('loaded');
-          img.parentElement.style.backgroundColor = '#f0f0f0';
-          img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="400" viewBox="0 0 300 400"%3E%3Crect width="300" height="400" fill="%23f0f0f0"/%3E%3Ctext x="50%" y="50%" font-family="Arial" font-size="14" fill="%23999" text-anchor="middle" dy=".3em"%3EImage not available%3C/text%3E%3C/svg%3E';
-        }
-
-        // Open modal with pin details
-        function openModal(item, index) {
-          currentMedia = item;
-          
-          const title = item.title || "Untitled";
-          const imageUrl = item.imageUrl;
-
-          // Set modal content
-          modalTitle.textContent = title;
-          modalImage.innerHTML = `
-            <img src="${imageUrl}" alt="${title}" 
-                 onload="this.style.opacity='1'"
-                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\"%3E%3Crect width=\"600\" height=\"400\" fill=\"%23f0f0f0\"/%3E%3Ctext x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"16\" fill=\"%23999\" text-anchor=\"middle\" dy=\".3em\"%3EImage not available%3C/text%3E%3C/svg%3E'"
-                 style="opacity:0; transition: opacity 0.3s;">
-          `;
-
-          // Set download button
-          downloadBtn.onclick = () => downloadImage(imageUrl, title);
-          
-          // Set share button
-          shareBtn.onclick = () => sharePin(item);
-
-          // Show modal
-          pinModal.classList.add("active");
-          document.body.style.overflow = "hidden";
-        }
-
-        // Close modal - FIXED VERSION
-        function closeModal() {
-          if (pinModal) {
-            pinModal.classList.remove("active");
-          }
-          document.body.style.overflow = "auto";
-        }
-
-        // Download image
-        function downloadImage(url, title) {
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = (title || 'image').replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.jpg';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          
-          showToast("Download started", "success");
-        }
-
-        // Share pin
-        function sharePin(item) {
-          const title = item.title || "Check out this image";
-          const url = item.imageUrl;
-          
-          if (navigator.share) {
-            navigator.share({
-              title: title,
-              text: `Found this on Istazz Media: ${title}`,
-              url: url,
-            })
-            .then(() => showToast("Shared successfully", "success"))
-            .catch((error) => console.log('Error sharing:', error));
-          } else {
-            // Fallback: copy to clipboard
-            navigator.clipboard.writeText(url)
-              .then(() => showToast("Link copied to clipboard", "success"))
-              .catch(err => {
-                console.error('Failed to copy: ', err);
-                showToast("Failed to share", "error");
-              });
-          }
-        }
-
-        // Save pin
-        function savePin(item) {
-          showToast("Saved to favorites", "success");
-        }
-
-        // Search functionality
-        function searchMedia(query) {
-          if (!query.trim()) {
-            filteredMedia = [...allMedia];
-            displayMedia();
-            return;
-          }
-
-          const searchTerm = query.toLowerCase().trim();
-          filteredMedia = allMedia.filter(item => {
-            const title = (item.title || "").toLowerCase();
-            const description = (item.description || "").toLowerCase();
-            
-            return title.includes(searchTerm) || description.includes(searchTerm);
-          });
-
-          displayMedia();
-        }
-
-        // Show skeleton loading
-        function showSkeletonLoading() {
-          pinterestGrid.innerHTML = '';
-          for (let i = 0; i < 15; i++) {
-            const skeleton = document.createElement('div');
-            skeleton.className = 'pin-skeleton';
-            // Random heights like real Pinterest
-            skeleton.style.height = `${Math.floor(Math.random() * 300) + 200}px`;
-            pinterestGrid.appendChild(skeleton);
-          }
-        }
-
-        // Show no media message
-        function showNoMediaMessage() {
-          pinterestGrid.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #767676;">
-              <i class="bi-inbox" style="font-size: 48px; margin-bottom: 20px; display: block; color: #ddd;"></i>
-              <h3 style="margin-bottom: 12px; font-weight: 500;">No media found</h3>
-              <p style="margin-bottom: 24px;">Upload some images to your Firebase database to get started.</p>
-              <button onclick="window.loadMedia()" style="background: #e60023; color: white; border: none; padding: 12px 24px; border-radius: 24px; font-weight: 600; cursor: pointer; font-size: 14px;">
-                Try Again
-              </button>
-            </div>
-          `;
-        }
-
-        // Show no results message
-        function showNoResultsMessage() {
-          pinterestGrid.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #767676;">
-              <i class="bi-search" style="font-size: 48px; margin-bottom: 20px; display: block; color: #ddd;"></i>
-              <h3 style="margin-bottom: 12px; font-weight: 500;">No results found</h3>
-              <p style="margin-bottom: 24px;">Try different search terms or browse all images.</p>
-              <button onclick="clearSearch()" style="background: #e60023; color: white; border: none; padding: 12px 24px; border-radius: 24px; font-weight: 600; cursor: pointer; font-size: 14px;">
-                Clear Search
-              </button>
-            </div>
-          `;
-        }
-
-        // Show error message
-        function showErrorMessage(message) {
-          pinterestGrid.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #767676;">
-              <i class="bi-exclamation-triangle" style="font-size: 48px; margin-bottom: 20px; display: block; color: #e60023;"></i>
-              <h3 style="margin-bottom: 12px; font-weight: 500;">Something went wrong</h3>
-              <p style="margin-bottom: 24px;">${message}</p>
-              <button onclick="window.loadMedia()" style="background: #e60023; color: white; border: none; padding: 12px 24px; border-radius: 24px; font-weight: 600; cursor: pointer; font-size: 14px;">
-                Try Again
-              </button>
-            </div>
-          `;
-        }
-
-        // Clear search
-        function clearSearch() {
-          if (searchInput) {
-            searchInput.value = '';
-          }
-          filteredMedia = [...allMedia];
-          displayMedia();
-        }
-
-        // Show toast notification
-        function showToast(message, type = "success") {
-          if (toastMessage) {
-            toastMessage.textContent = message;
-          }
-          if (toast) {
-            toast.className = `toast ${type} visible`;
-            
-            setTimeout(() => {
-              toast.classList.remove('visible');
-            }, 3000);
-          }
-        }
-
-        // Setup event listeners - FIXED VERSION
-        function setupEventListeners() {
-          // Search form
-          if (searchForm && searchInput) {
-            searchForm.addEventListener('submit', (e) => {
-              e.preventDefault();
-              searchMedia(searchInput.value);
-            });
-
-            searchInput.addEventListener('input', (e) => {
-              if (e.target.value === '') {
-                filteredMedia = [...allMedia];
-                displayMedia();
-              }
-            });
-          }
-
-          // Modal close - FIXED
-          if (modalClose) {
-            modalClose.addEventListener('click', closeModal);
-          }
-          
-          // Close modal when clicking outside
-          if (pinModal) {
-            pinModal.addEventListener('click', (e) => {
-              if (e.target === pinModal) {
-                closeModal();
-              }
-            });
-          }
-
-          // Keyboard navigation
-          document.addEventListener('keydown', (e) => {
-            if (pinModal && pinModal.classList.contains('active')) {
-              if (e.key === 'Escape') {
-                closeModal();
-              }
-            }
-          });
-
-          // Scroll to top
-          if (scrollToTop) {
-            scrollToTop.addEventListener('click', () => {
-              window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-              });
-            });
-          }
-
-          // Show/hide scroll to top button
-          window.addEventListener('scroll', () => {
-            if (scrollToTop) {
-              if (window.pageYOffset > 500) {
-                scrollToTop.classList.add('visible');
-              } else {
-                scrollToTop.classList.remove('visible');
-              }
-            }
-          });
-        }
-
-        // Make functions available globally for onclick handlers
-        window.loadMedia = loadMedia;
-        window.clearSearch = clearSearch;
-        window.handleImageError = handleImageError;
-
-        // Initialize the app
-        document.addEventListener('DOMContentLoaded', init);
-    </script>
-
-    <!-- SIMPLE FIX FOR MODAL CLOSE BUTTON - Ensures it works even if module fails -->
     <script>
+        // Newsletter form submission
         document.addEventListener('DOMContentLoaded', function() {
-            // Direct fix for modal close button
-            const closeBtn = document.getElementById('modalClose');
-            const modal = document.getElementById('pinModal');
+            const newsletterForm = document.querySelector('.newsletter-form');
+            const newsletterInput = newsletterForm.querySelector('input');
+            const newsletterBtn = newsletterForm.querySelector('.newsletter-btn');
             
-            if (closeBtn && modal) {
-                closeBtn.addEventListener('click', function(e) {
+            newsletterBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const email = newsletterInput.value.trim();
+                
+                if (!email) {
+                    showNewsletterMessage('Please enter your email address', 'error');
+                    return;
+                }
+                
+                if (!isValidEmail(email)) {
+                    showNewsletterMessage('Please enter a valid email address', 'error');
+                    return;
+                }
+                
+                // Simulate subscription success
+                showNewsletterMessage('Thank you for subscribing to our newsletter!', 'success');
+                newsletterInput.value = '';
+            });
+            
+            // Also handle Enter key in the input field
+            newsletterInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
                     e.preventDefault();
-                    e.stopPropagation();
-                    modal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                });
-            }
-            
-            // Also close when clicking outside modal
-            if (modal) {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === modal) {
-                        modal.classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                    }
-                });
-            }
-            
-            // Close with ESC key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
+                    newsletterBtn.click();
                 }
             });
             
-            // Ensure images are clickable
-            setTimeout(function() {
-                const pinCards = document.querySelectorAll('.pin-card');
-                pinCards.forEach(card => {
-                    if (!card.hasAttribute('data-click-attached')) {
-                        card.setAttribute('data-click-attached', 'true');
-                        card.addEventListener('click', function(e) {
-                            if (!e.target.closest('.pin-action-btn')) {
-                                const id = this.getAttribute('data-id');
-                                const index = this.getAttribute('data-index');
-                                if (id && allMedia && allMedia[index]) {
-                                    openModal(allMedia[index], index);
-                                }
-                            }
-                        });
-                    }
-                });
-            }, 1000);
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+            
+            function showNewsletterMessage(message, type) {
+                // Create toast notification
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.innerHTML = `
+                    <div class="toast-icon">
+                        <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                    </div>
+                    <div class="toast-message">${message}</div>
+                `;
+                
+                document.body.appendChild(toast);
+                
+                // Trigger animation
+                setTimeout(() => {
+                    toast.classList.add('visible');
+                }, 10);
+                
+                // Remove after delay
+                setTimeout(() => {
+                    toast.classList.remove('visible');
+                    setTimeout(() => {
+                        if (document.body.contains(toast)) {
+                            document.body.removeChild(toast);
+                        }
+                    }, 300);
+                }, 3000);
+            }
         });
     </script>
+  
 </body>
 </html>
